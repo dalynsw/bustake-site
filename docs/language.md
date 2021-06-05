@@ -451,7 +451,7 @@ The build-in functions is tool to manipulate `string`, `number` value
 return `true` or `false` a `string` starts with a prefix.
 
 ```starts_with
-    isAustralia = starts_with(FROM, '+61');
+    isAustralia = starts_with value=FROM, prefix='+61';
 ```
 
 ### ends_with
@@ -459,7 +459,7 @@ return `true` or `false` a `string` starts with a prefix.
 return `true` or `false` a `string` ends with a suffix.
 
 ```starts_with
-    isEndABC = ends_with(TO, 'abc');
+    isEndABC = ends_with value=TO, suffix='abc';
 ```
 
 ### template
