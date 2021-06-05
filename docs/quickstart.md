@@ -152,7 +152,7 @@ Let's build a 2 levels IVR for a car dealer's hotline. The first level is depart
 
 
 audio name='department_menu', tts='press 1 for customer service, press 2 for car service, press 3 for sales';
-ivr name='departments', audio_ref='department_menu', numDigits=1;
+ivr name='departments', audioRef='department_menu', numDigits=1;
 
 play_ivr name='departments', loop=2;
 
@@ -165,7 +165,7 @@ switch GATHER_DIGITS
         numberTo = '+613334332dd';
     case '3'
         audio name='sales_menu', tts='press 1 for booking a test drive, press 2    for order enquiry';
-        ivr name='sales', audio_ref='sales_menu', numDigits=1;
+        ivr name='sales', audioRef='sales_menu', numDigits=1;
 
         play_ivr name='sales', loop=2;
         if GATHER_DIGITS == '1'
@@ -288,13 +288,13 @@ Firstly let's talk the existing difficulties:
 
 * `surfing problem` TwiML is the base of the Twillio SDK. It is a kind of XML
     focusing on voice interaction. It is for building the voice interface of the voice app. It can play audio and tts, collect dtmf inputs. The SDK helps to develop app to render this XML - TwiML to interact with the caller.
-    The problem is the `call flow` is cutted by these XML pages. The call flow is surfing from one XML page to another XML page. When the call flow is complicated, so many pages make the system confused and difficult to understand and extend. It is very hard to map the call low to these xml pages.
+    The problem is the `call flow` is cutted by these XML pages. The call flow is surfing from one XML page to another XML page. When the call flow is complicated, so many pages make the system confused and difficult to understand and extend. It is very hard to map the call flow against these xml pages.
 * `absence of domain objects` The SDK only prvodes basic TwiML `nouns & verbs` objects and functions. When building a `voice app`, it is hard to build models and connect models into a system.
-* `state machine problem` The TwiML doesn't provide a state machine solution. This causes the app has to manage the `state` by itself, such as session, cookies. This makes the `http` protocol exposed as the framework to manage the state, but the `http` has no any business with the `call flow`, so it breaks the `call flow` into pieces.
+* `state machine problem` The TwiML doesn't provide a state machine solution. This causes the app has to manage the `state` by itself, such as session, cookies. This makes the `http` protocol is used as the framework to manage the state, but the `http` protocol has no any business with the `call flow`, so it breaks the `call flow` into pieces.
 
 Second, letu's talk the solution:
 
-* `focus on the call flow` The bustake script is focus on the `call flow`. It is easy to map a `call flow graph` against the bustake script `program flow`.
+* `focus on the call flow` The bustake script is focusing on the `call flow`. It is easy to map a `call flow graph` against a bustake script `program flow`.
 * `first class build-in objects` The `audio, ivr, sms, email, google drive, play_aduio, play_ivr...` are first class objects. The app can be built directly on top of these objects.
 * `state machine managed by build-in objects and script grammer` The whole `voice app` build and managed by only one `script`. The script can access the `build-in objects` and the `script` is able to access and manage the `app state`. 
 
