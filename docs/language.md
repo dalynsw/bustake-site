@@ -1,7 +1,7 @@
 # Language Reference
 
 ## value types
-In Bustake script, a value can be in 3 types, `string`, `number`, `boolean`, and `array`
+In Bustake script, a value can be in 4 types, `string`, `number`, `boolean`, and `array`
 
 ### string
 A string value is quoted by `'` or `"`
@@ -14,16 +14,17 @@ A number value can be an integer or float. Exmples: `1, 2, 3` or `1.10, 2.20, -3
 A boolean value is `true` or `false`.
 
 ### array
-Array is a container type of value which contains other values. The value can be in different types. Examples: `[1,2,'hello',4]` or `[1.01, [1, 2], -3, 'hello', 4]`
+Array is a container type of value which contains other values. The value can be in different types. Examples: `[1,2,'hello',4]` or `[1.01, [1, 2], -3, 'hello',true, 4]`
 
 ### object
-An object is a container of a value. You can think an object as a box which contains a value. A object can have value of `string`, `number` and `array`. Customer created objects can only be created by the `assignment` statment and the `fetch` statement.
+An object is a container of a value. You can think an object as a box which contains a value. A object can have value of `string`, `number`, `boolean` and `array`. Customer created objects can only be created by the `assignment` statment and the `fetch` statement.
 
 ```object
 a = 'hello world'; //string object
 b = 10; //number object
 c = [1, 2, 'love', 4]; //array object
 e = a; //string object the value is from object `a`
+f = true; //boolean object
 ```
 
 ## expressions
