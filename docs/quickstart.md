@@ -179,7 +179,8 @@ email_content = template format='You received a call from {0}. The cal was termi
 
 email to='jayxx@test.com', subject='a call from hotline', content=email_content;
 
-
+hook_url = template format='https://www.test.io/hotline?from={0}', values=[FROM];
+web_hook url=hook_url;
 ```
 
 #### **Node JS**
@@ -297,5 +298,6 @@ Second, letu's talk the solution:
 * `focus on the call flow` The bustake script is focusing on the `call flow`. It is easy to map a `call flow graph` against a bustake script `program flow`.
 * `first class build-in objects` The `audio, ivr, sms, email, google drive, play_aduio, play_ivr...` are first class objects. The app can be built directly on top of these objects.
 * `state machine managed by build-in objects and script grammer` The whole `voice app` build and managed by only one `script`. The script can access the `build-in objects` and the `script` is able to access and manage the `app state`. 
+* `powerful fetch, web_hook` The better way is using the `bustake scrpt` controlling the voice and using the `web_hook,fetch` to programming the business logic. 
 
 Next >> [language reference](language.md).
