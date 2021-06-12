@@ -134,7 +134,7 @@ else
 
 ### switch case
 
-The `if else` statement runs 2 bodys. When the exprssion value is true, it runs the `if` body, otherwise it will check the other `elsif` bodys, otherwise the `else` body.
+The `switch case` statement runs multi bodys based on the expression matching. When the exprssion of a `case statement` value is true, it runs the `body of the case`, otherwise it will check the other `cases`, otherwise the `default` body.
 
 ```switch case
 switch age
@@ -226,10 +226,11 @@ play_ivr name='department';
 Dial an outbound leg and bridge the inbound leg when success.
 
 ```dial
-dial to='+6123443d';
+dial values=['6123443xx'];
 ```
 
 - attributes [twiML dial] (https://www.twilio.com/docs/voice/twiml/dial)
+    - trunkType: pstn/sip default is pstn
     - answerOnBridge: 
     - callerId:
     - callReason:
