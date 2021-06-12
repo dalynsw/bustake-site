@@ -446,7 +446,7 @@ contains a confidence score between 0.0 and 1.0. A higher confidence score means
 
 The build-in functions is tool to manipulate `string`, `number` value
 
-### stars_with
+### starts_with
 
 return `true` or `false` a `string` starts with a prefix.
 
