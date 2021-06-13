@@ -251,6 +251,10 @@ redirect the call flow to the specified script.
 - attributes
     - `path` the path redirect to. 
 
+```redirect
+redirect path='register.bus'
+```
+
 ### hangup
 
 The`Hangup` statement ends a call. 
