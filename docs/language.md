@@ -245,7 +245,7 @@ dial values=['6123443xx'];
 
 ### redirect
 
-redirect the call flow to the specified script.
+redirect the call flow to the specified script. The statements after the `redirect` is not being executed.
 
 
 - attributes
