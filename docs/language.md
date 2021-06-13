@@ -243,6 +243,14 @@ dial values=['6123443xx'];
     - trim
 
 
+### redirect
+
+redirect the call flow to the specified script.
+
+
+- attributes
+    - `path` the path redirect to. 
+
 ### hangup
 
 The`Hangup` statement ends a call. 
