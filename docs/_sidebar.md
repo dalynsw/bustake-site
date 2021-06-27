@@ -2,4 +2,4 @@
 
 * [Quick Start](/quickstart.md)
 * [Language Reference](language.md)
-* [Examples](examples.md)
+* [Tools](Tools.md)

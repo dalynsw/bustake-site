@@ -198,12 +198,12 @@ Play the audio object.
 
 ```play_audio
 
-play_audio name='recording_alert', loop=2, voice='alice';
+play_audio ref='recording_alert', loop=2, voice='alice';
 
 ```
 
 - attributes
-    - name: the name of audio object to be played.
+    - ref: the name of audio object to be played.
     - voice: the name of voice. please ref from [voice_name](voice_name)
     - loop: loop count. default is 1.
 
@@ -214,12 +214,12 @@ Play the IVR message and wait to gather the dtmf inputs.
 
 ```play_ivr
 
-play_ivr name='department';
+play_ivr ref='department';
 
 ```
 
 - attributes
-    - name: the name of ivr object to be played.
+    - ref: the name of ivr object to be played.
 
 ### dial
 
@@ -230,6 +230,8 @@ dial values=['6123443xx'];
 ```
 
 - attributes [twiML dial] (https://www.twilio.com/docs/voice/twiml/dial)
+    - values: the multi terimation numbers 
+    - valueL the terimation number.
     - trunkType: pstn/sip default is pstn
     - answerOnBridge: 
     - callerId:
