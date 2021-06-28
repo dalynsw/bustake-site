@@ -53,11 +53,11 @@ The format of Modifier is `(words words word)[modifer key1="value1", key2="value
 
 ### sayAs
 
-[amazon doc - say_as] (https://docs.aws.amazon.com/polly/latest/dg/supportedtags.html#say-as-tag)
+[amazon doc - say_as](https://docs.aws.amazon.com/polly/latest/dg/supportedtags.html#say-as-tag)
 
 ### emphasis
 
-[amazon doc - emphasis] (https://docs.aws.amazon.com/polly/latest/dg/supportedtags.html#emphasis-tag)
+[amazon doc - emphasis](https://docs.aws.amazon.com/polly/latest/dg/supportedtags.html#emphasis-tag)
 
 level attribute values:
 
@@ -68,7 +68,8 @@ level attribute values:
 (changing password.)[emphasis level="strong"]
 
 ### prosody
-[amazon docs - prosody] (https://docs.aws.amazon.com/polly/latest/dg/supportedtags.html#prosody-tag)
+
+[amazon docs - prosody](https://docs.aws.amazon.com/polly/latest/dg/supportedtags.html#prosody-tag)
 
   - volume
     default: Resets volume to the default level for the current voice.
