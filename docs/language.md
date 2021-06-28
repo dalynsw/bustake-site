@@ -4,8 +4,8 @@
 In Bustake script, a value can be in 4 types, `string`, `number`, `boolean`, and `array`
 
 ### string
-A string value is quoted by `'` or `"`
-Valid string example: `'hello world'` or `"hello world"`
+A string value is quoted by `'` or `"` or `\``
+Valid string example: `'hello world'` or `"hello world"` `\`hello world\`` 
 
 ### number
 A number value can be an integer or float. Exmples: `1, 2, 3` or `1.10, 2.20, -3.4`
@@ -17,18 +17,18 @@ A boolean value is `true` or `false`.
 Array is a container type of value which contains other values. The value can be in different types. Examples: `[1,2,'hello',4]` or `[1.01, [1, 2], -3, 'hello',true, 4]`
 
 ### object
-An object is a container of a value. You can think an object as a box which contains a value. A object can have value of `string`, `number`, `boolean` and `array`. Customer created objects can only be created by the `assignment` statment and the `fetch` statement.
+An object is a container of a value. You can think of an object as a box which contains a value. A value can have type of `string`, `number`, `boolean` and `array` and other built-in objects `audio`, `ivr` and it can be saved into a box which is an object and this object can be referenced by the object.  Objects can only be created by the `assignment` statment and the `fetch` statement.
 
 ```object
-a = 'hello world'; //string object
-b = 10; //number object
-c = [1, 2, 'love', 4]; //array object
-e = a; //string object the value is from object `a`
-f = true; //boolean object
+a = 'hello world'; //a is a string object
+b = 10; //b is  a number object
+c = [1, 2, 'love', 4]; //c is an array object which contains 4 values.
+e = a; //e is a string object the value is from the object `a`
+f = true; //f is a boolean object
 ```
 
 ## expressions
-Expression is a value. expression value is computed from other  values and objects connected by operators. Different operator is in different precedence.
+An expression is a `value`. expression value is computed from other  values or `objects` which contain values. These values are connected by `operators`. Different operator is in different `precedence` when caculating.
 
 the precedence of operators are:
     - `()`
@@ -40,13 +40,13 @@ the precedence of operators are:
     - `> < >= <= == !=`
 
 ### literal expression
-the literal expression is `string`, `number` and `array`. Examples: `1, 2, 0.9, 'abc', [1,23, 'abc']`
+the literal expression is value of type `string`, `number` and `array`. Examples: `1, 2, 0.9, 'abc', [1,23, 'abc']`
 
 ### logical expression
-The logical expression is a boolean value which is caculated by `||` , `&&` or `and`. Examples: `ab && cd` `cc or abc`  `ee || df`
+The logical expression is a `boolean value` which is caculated by `||` , `&&` or `and`. Examples: `ab && cd` `cc or abc`  `ee || df`
 
 ### comparison expression
-The logical expression is a boolean value which is caculated by `>` `<` `>=` `<=` `==` `!=`.  Examples: `ab > 5` `cc <= abc`  `ee == df`
+The logical expression is a `boolean value` which is caculated by `>` `<` `>=` `<=` `==` `!=`.  Examples: `ab > 5` `cc <= abc`  `ee == df`
 
 ### parentheses
 Parentheses is a group.  The group has high precedence. examples `(bc > 5 || isTrue)`
@@ -59,30 +59,33 @@ String concat example: `abc + 'dfd' + adf`
 ### number operators
 Number operators are `+ - * / %`
 
-## body
+## block
 
-A body is a collection of statements. A body starts with an indent and ends with a outdent.
+A block is a collection of statements. A block starts with an `{` and ends with a o`}`.
 
-```body
-if good
-    //a indent starts a body
+```block
+if good { //a starts of a block
+    
     a = b;
     c = d;
-    //a outdent ends a  body
+    
+} //an ends of a block
 
-switch condition
-    //a indent starts a body
-    e = ds;
-    email subject='sdfsdf', content='sfsdf';
-    //a outdent ends a  body
-
-a = b;
+switch condition { //a starts of a block
+    case 'abc {
+        e = ds;
+        email subject='sdfsdf', content='sfsdf';
+    }
+    case 'cdde' {
+        noop;
+    }
+} //an ends of a block
 
 ```
 
 ## statements
 
-The statement is an execute unit of a script.  A script is a body. A body includes a collection of statements or bodys.
+A statement is an executable unit of a script.  A script is a collection of statments.
 
 ### if
 
@@ -98,56 +101,63 @@ if a > 5
 
 ### if else
 
-The `if else` statement runs 2 bodys. When the exprssion's value is true, it runs the `if` body, otherwise the `else` body.
+The `if else` statement runs 2 blocks. When the exprssion's value is true, it runs the `if` block, otherwise the `else` block.
 
 ```if else
-if a > 5
-    //if body
+if a > 5 {
+    //if block
     a = b;
     c = d;
-else
-    //else body
+} else {
+    //else block
     ddd = 'asdfasf';
     dff = 223
+}
 ```
 
 ### if elsif else
 
-The `if else` statement runs multi bodys. When the exprssion's value is true, it runs the `if` body, otherwise it will check the other `elsif` bodys, otherwise the `else` body.
+The `if else` statement runs multi blocks. When the exprssion's value is true, it runs the `if` block, otherwise it will check the other `elsif` blocks, otherwise the `else` block.
 
 ```if elsif else
-if a > 5
-    //if body
+if a > 5 {
+    //if block
     a = b;
     c = d;
-elsif a > 2
-    //elsif  body
+} elsif a > 2 {
+    //elsif  block
     ds = 'ddd';
-elsif a > 1
-    //elsif  body
+} elsif a > 1  {
+    //elsif  block
     fsdf = 123;
-else
-    //else  body
+} else {
+    //else  block
     ddd = 'asdfasf';
     dff = 223;
+}
 ```
 
 ### switch case
 
-The `switch case` statement runs multi bodys based on the expression matching. When the exprssion of a `case statement` value is true, it runs the `body of the case`, otherwise it will check the other `cases`, otherwise the `default` body.
+The `switch case` statement runs multi blocks based on the expression matching. When the exprssion of a `case statement` value is true, it runs the `block of the case`, otherwise it will check the other `cases`, otherwise the `default` block.
 
 ```switch case
-switch age
-    case 100
+switch age {
+    case 100 {
         a = b;
         c = d;
-    case 90
+    }
+    case 90 {
         ds = 'ddd';
-    case 80
+    }
+    case 80 {
         fsdf = 123;
-    default
+    }
+    default {
         ddd = 'asdfasf';
         dff = 223;
+    }
+}
 ```
 
 ### assignment
@@ -162,14 +172,14 @@ e = a;
 ```
 
 ### audio
-The `audio` statement creates an audio object. The object can be accessed by the name.
+The `audio` statement creates an `audio object`. The object can be accessed by the name.
 
 ```audio
 audio name='ivr_department_menu', voice='alice', file='departments_menu_file_name', tts='press 1 for sales department, press 2 for support department, press 3 for booking an appointment.';
 
 ```
 - attributes
-    - name: the name of the object. The object can be accessed by the name
+    - name: the name of the object. The object can be referenced by the name
     - file: the audio file name of saved under the `audio repository`
    
 
@@ -177,7 +187,7 @@ audio name='ivr_department_menu', voice='alice', file='departments_menu_file_nam
 
 ### ivr
 
-create an ivr object. The object can be accessed by the name attribute.
+The `ivr` statement creates an `ivr object`. The object can be referenced by the name.
 
 ```ivr
 
@@ -210,7 +220,8 @@ play_audio ref='recording_alert', loop=2, voice='alice';
 
 ### play_ivr
 
-Play the IVR message and wait to gather the dtmf inputs.
+Play the IVR object and wait to gather the dtmf inputs or the recognized `speech phrase` . Please see
+the built-in objects.
 
 ```play_ivr
 
@@ -231,7 +242,7 @@ dial values=['6123443xx'];
 
 - attributes [twiML dial] (https://www.twilio.com/docs/voice/twiml/dial)
     - values: the multi terimation numbers 
-    - valueL the terimation number.
+    - value the terimation number.
     - trunkType: pstn/sip default is pstn
     - answerOnBridge: 
     - callerId:
@@ -247,22 +258,22 @@ dial values=['6123443xx'];
 
 ### redirect
 
-redirect the call flow to the specified script. The statements after the `redirect` is not being executed.
+redirect the call flow to a specified script. The statements after the `redirect` are not being executed afterwards.
 
 
 - attributes
-    - `path` the path redirect to. 
+    - `path` the path of the new script redirect to. 
 
 ```redirect
-redirect path='register.bus'
+redirect path='/register.bus'
 ```
 
-### hangup
+### hang_up
 
-The`Hangup` statement ends a call. 
+The`Hang_up` statement ends a call. 
 
-```hangup
-hangup
+```hang_up
+hang_up
 ```
 
 
@@ -276,7 +287,7 @@ reject
 
 ### fetch
 
-The `fetch` statement will download a formated data by a http 'get' request.
+The `fetch` statement will send a `http get` request and download a formated string. The string includes lines and each line in the `key=value` format and termiated by a `carriage return` key.
 
 ```fetch
 fetch url='https://www.test.ccc/abc', timeout=2;
@@ -288,25 +299,14 @@ The response of the fetch result must be in this format:
 key1=value1
 key2=value2
 key3=value3
-...
 ```
 
-The fetched key will be saved in a string object with keys and values. These keys will be objects with the values. The app can accesses these string objects afterwards.
+The fetched keys are created `string objects names` and the values are the corresponding `string values`. The app statementsa afterwards can accesses these string objects.
 
 - attributes
     - url
     - timeout
 
-### web_hook
-
-
-The `web_hook` statement will send a http 'get' request and ignore the result.
-
-```web_hook
-web_hook url='https://www.test.ccc/abc', timeout=2;
-```
-
-The result of `web_hook` is ignored.
 
 ### sms
 
@@ -321,6 +321,7 @@ email subject='abc', content='cddd';
 - attributes
     - subject
     - content
+
 
 ## built-in objects
 
@@ -446,11 +447,11 @@ The duration of the recorded audio (in seconds).
 
 ### GATHER_DIGITS
 
-The dtmf digits entered.
+The dtmf digits entered when running the `play_ivr` statement.
 
 ### GATHER_SPEECH_RESULT
 
-contains the transcribed result of your caller's speech.
+The `phrase`  transcribed result of your caller's speech when `play_ivr` statement.
 
 ### GATHER_CONFIDENCE
 
@@ -459,11 +460,11 @@ contains a confidence score between 0.0 and 1.0. A higher confidence score means
 
 ## built-in functions
 
-The build-in functions is tool to manipulate `string`, `number` value
+The built-in functions is tools to manipulate `string`, `number` value
 
 ### starts_with
 
-return `true` or `false` a `string` starts with a prefix.
+return `true` or `false` when a `string` starts with a prefix.
 
 ```starts_with
     isAustralia = starts_with value=FROM, prefix='+61';
@@ -471,7 +472,7 @@ return `true` or `false` a `string` starts with a prefix.
 
 ### ends_with
 
-return `true` or `false` a `string` ends with a suffix.
+return `true` or `false` when a `string` ends with a suffix.
 
 ```starts_with
     isEndABC = ends_with value=TO, suffix='abc';
@@ -482,8 +483,8 @@ return `true` or `false` a `string` ends with a suffix.
 return a string from a format string and values
 
 ```template
-email_content = template format="I love {0}, I am {1}",  values=['Twilio', 'Jay'];
-\\email_content is string object with value 'I love Twilio, I am Jay'
+email_content = template format="I love %s, I am %s",  values=['Twilio', 'Jay'];
+\\email_content is a string object with value 'I love Twilio, I am Jay'
 ```
 
 ### split
@@ -505,7 +506,7 @@ is_number = match value="str", pattern='[0..1]+';
 
 ### number
 
-convert a `stirng` value to a `number` value
+convert a `string` value to a `number` value
 
 ```number
     num = number value='123';

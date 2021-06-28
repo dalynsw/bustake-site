@@ -158,29 +158,28 @@ play_ivr name='departments', loop=2;
 
 numberTo = '+61023433xx';
 
-switch GATHER_DIGITS
-    case '1'
+switch GATHER_DIGITS {
+    case '1' {
         numberTo = '+610234433xx';
-    case '2'
+    }
+    case '2' {
         numberTo = '+613334332dd';
-    case '3'
+    }
+    case '3' {
         audio name='sales_menu', tts='press 1 for booking a test drive, press 2    for order enquiry';
         ivr name='sales', audioRef='sales_menu', numDigits=1;
 
         play_ivr name='sales', loop=2;
-        if GATHER_DIGITS == '1'
+        if GATHER_DIGITS == '1'{
             numberTo = '+6143322xx';
-        elsif GATHER_DIGITS == '2'
+        } elsif GATHER_DIGITS == '2' {
             numberTo = '+619888cc';
+        }
+    }
+}
 
-dial to=numberTo;
+dial value=numberTo;
 
-email_content = template format='You received a call from {0}. The cal was terminated {1}.  The status of call is {2}.', values=[FROM, numberTo, CALL_STATUS];
-
-email to='jayxx@test.com', subject='a call from hotline', content=email_content;
-
-hook_url = template format='https://www.test.io/hotline?from={0}', values=[FROM];
-web_hook url=hook_url;
 ```
 
 #### **Node JS**
