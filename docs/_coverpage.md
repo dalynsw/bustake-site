@@ -4,7 +4,7 @@
 
 # Bustake Script <small>0.1.1 beta</small>
 
-> A Tiwilio Voice Phone Call APP Language.
+> A Twilio Voice Phone Call APP Language.
 
 - Simple and Straight forward to build & control phone calls.
 - First class Domain objects such as IVR, call recording, SMS, Text to speech, Speech Recognizing.
