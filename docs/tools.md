@@ -12,7 +12,7 @@ The only way to register a new account is making a phone call to the number `1ss
 
 ## SFTP uploading
 
-Once registered, a SMS will be sent to your number with the login id and password. Your number is your login id.
+Once registered, a SMS will be sent to your number with the login id and password. Your number is your login id. You can upload the scripts to test and download the logs to debug the scripts.
 
 The sftp server domain name is `ftp.bustake.com`
 

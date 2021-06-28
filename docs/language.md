@@ -323,6 +323,13 @@ email subject='abc', content='cddd';
     - content
 
 
+### log
+
+There is a log file under the `logs` folder for each phone call. The log file recorded the journey of the call by the `bustake scripts`. To help the developer to diagnose, the `log` statement can be added in the places of the script.
+
+- attributes
+    - message:  the message you want to save into the log file. You can use the `assign` statement with the `template` funcation to compose the `message` string and saving the values into the log file.
+
 ## built-in objects
 
 ### CALL_SID
