@@ -190,10 +190,6 @@ app.get('/hotline/dial', (req, res) => {
 	dial(req, res);
 });
 
-app.get('/hotline/email', (req, res) => {
-	email(req, res);
-});
-
 app.get('/hotline/level1', (req, res) => {
 	level1(req, res);
 });
@@ -219,12 +215,9 @@ function level1(req, res){
 }
 
 function dial(to){
-    //....100 lines..skip
+    //...100 lines..skip
 }
 
-function email(to){
-    //....another 100 lines..skip
-}
 
 function level2(req, res){
     let choice = req.query['Digits'];
