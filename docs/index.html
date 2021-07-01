@@ -7,11 +7,34 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  
+  <link rel="stylesheet" href="https://prismjs.com/assets/style.css" />
+  <link rel="stylesheet" href="https://prismjs.com/themes/prism.css" data-noprefix />
+  <link rel="stylesheet" href="https://prismjs.com/plugins/line-numbers/prism-line-numbers.css" data-noprefix />
+
 </head>
 <body>
   <div id="app"></div>
   <script>
     window.$docsify = {
+      markdown: {
+        renderer: {
+          /* Change code block rendering. Add line-numbers class.*/
+          code: function (code, lang) {
+            let cc = document.createElement('code');
+            cc.textContent = code;
+            cc.setAttribute('class', 'language-' + lang);
+            return '<pre data-lang="' + lang + '" class="line-numbers">' + cc.outerHTML + '</pre>';
+          }
+        }
+      },
+      plugins: [
+          function (hook, vm) {
+              hook.doneEach(function (html) {                
+                Prism.highlightAll();
+              })
+          }
+      ],
       name: 'bustake script',
       nameLink: '/',
       repo: '',
@@ -40,11 +63,31 @@
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/disqus.min.js"></script>
+  
+  <script src="https://prismjs.com/prism.js"></script>
+  <script src="https://prismjs.com/plugins/line-numbers/prism-line-numbers.js"></script>
+  
   <style>
     :root {
       --docsifytabs-border-color: #ededed;
       --docsifytabs-tab-highlight-color: purple;
     }
+
+/*  
+ * Fix line number in code block. 
+ * Change this overflow attr to <pre> not the <code>.
+ */
+ .markdown-section pre[data-lang] {
+    overflow: auto !important;
+}
+.markdown-section pre[data-lang] code {
+    overflow: visible;
+}
+.line-numbers .line-numbers-rows {
+    border-right : 2px solid white;
+    /* Fix paddings to align with code.*/
+    padding: 2.2em 0; /* Same as code block */
+}
   </style>
 </body>
 </html>

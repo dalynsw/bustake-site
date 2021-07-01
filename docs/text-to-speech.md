@@ -48,7 +48,7 @@ The break can be in `seconds` or `milli seconds`.
 
 Modifier is the  words you want to polish the pronauncation.
 
-The format of Modifier is `(words words word)[modifer key1="value1", key2="value2", key3="value3"]`
+The format of Modifier is `(words words words)[modifer key1="value1", key2="value2", key3="value3"]`
 
 
 ### sayAs
