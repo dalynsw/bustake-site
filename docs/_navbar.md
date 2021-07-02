@@ -8,5 +8,5 @@
 
 
 * Register 
-  * [Register](tools.md)
-  * [Change Password](tools.md)
+  * [Register](quickstart.md#register-and-changing-passowrd)
+  * [Change Password](quickstart.md)
