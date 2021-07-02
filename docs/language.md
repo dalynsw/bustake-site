@@ -4,8 +4,8 @@
 In Bustake script, a value can be in 4 types, `string`, `number`, `boolean`, and `array`
 
 ### string
-A string value is quoted by `'` or `"` or `\``
-Valid string example: `'hello world'` or `"hello world"` `\`hello world\`` 
+A string value is quoted by `'` or `"` or ```
+Valid string example: `'hello world'` or `"hello world"` ``hello world`` 
 
 ### number
 A number value can be an integer or float. Exmples: `1, 2, 3` or `1.10, 2.20, -3.4`
@@ -17,7 +17,7 @@ A boolean value is `true` or `false`.
 Array is a container type of value which contains other values. The value can be in different types. Examples: `[1,2,'hello',4]` or `[1.01, [1, 2], -3, 'hello',true, 4]`
 
 ### object
-An object is a container of a value. You can think of an object as a box which contains a value. A value can have type of `string`, `number`, `boolean` and `array` and other built-in objects `audio`, `ivr` and it can be saved into a box which is an object and this object can be referenced by the object.  Objects can only be created by the `assignment` statment and the `fetch` statement.
+An object is a container of a value. You can think of an object as a box which contains a value. A value can have type of `string`, `number`, `boolean` and `array`.  The value can be saved into a box which is an object. The object can be referenced.  Objects can only be created by the `assignment` statment and the `fetch` statement. The built-in object `auduio` is created by the audio statement. The built-in object `ivr` is created by the ivr statement. The built-in objects can be reference by the `name` attribute.
 
 ```object
 a = 'hello world'; //a is a string object
@@ -543,3 +543,7 @@ num = random min=0, max=100;
 
     \\sstr value is 'bcd'
 ```
+
+
+## _callend.bus
+The `_callend.bus` is executed when every call ended. The `sms`  `email`, `fetch` statement can be usedto send variables to the third parties.
