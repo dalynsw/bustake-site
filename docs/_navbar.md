@@ -4,6 +4,7 @@
 
   * [Quick start](quickstart.md)
   * [Reference](language.md)
+  * [example](example.md)
   * [Tools](tools.md)
 
 

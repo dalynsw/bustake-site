@@ -547,3 +547,6 @@ num = random min=0, max=100;
 
 ## _callend.bus
 The `_callend.bus` is executed when every call ended. The `sms`  `email`, `fetch` statement can be usedto send variables to the third parties.
+
+
+Next >> [text to speech](text-to-speech.md).
