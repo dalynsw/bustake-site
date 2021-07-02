@@ -1,5 +1,7 @@
 # Examples
 
+When you are calling this number `+1720-709-23851`. The following script will guid the call flow.
+
 ## portal.bus
 
 ```bus
