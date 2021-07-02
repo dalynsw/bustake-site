@@ -295,6 +295,9 @@ and you can paste this link to this phone number to control the phone call of th
   - Install the SFTP client app [Filezilla](https://filezilla-project.org/download.php)
   - Once registered, a login id and password is sent. You can use these to sftp upload
     your scripts.
+
+    ![sftp login](https://raw.githubusercontent.com/jaynsw/bustake-site/main/docs/images/sftp-login.png)
+    ![sftp root](https://raw.githubusercontent.com/jaynsw/bustake-site/main/docs/images/sftp-root.png)
     
 
 
