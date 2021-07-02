@@ -317,10 +317,13 @@ upload your script by your sftp account. The script can be referenced by an url 
            └── test.bus    //https://twlo.bustake.com/script/voice/{userid}/test.bus
 
 ```
+
 such as https://twlo.bustake.com/script/voice/a37041a3cc288e8cd5add2d1eb0c358b/test.bus
 
 - You can validate your script grammer by the [tools](tools.md)
 - Once every is done, if you want to test the script by calling your number, you can specify the url of your script in twillio admin website for controlling the phone calls.
+
+
 ```
 Phone Numbers / Manage Numbers /Active Numbers /
 ```
