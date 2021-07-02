@@ -277,7 +277,7 @@ function level2(req, res){
 
 
 
-## Registration
+## Registration and Changging Password
 
 The only way to regsiter a new account is by calling the number `+1720-709-2385`
 
