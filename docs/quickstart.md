@@ -322,6 +322,7 @@ such as https://twlo.bustake.com/script/voice/a37041a3cc288e8cd5add2d1eb0c358b/t
 
 - You can validate your script grammer by the [tools](tools.md)
 - Once every is done, if you want to test the script by calling your number, you can specify the url of your script in twillio admin website for controlling the phone calls.
+- The url is used in 2 places. Once is `a call comes in` another is `call status changes`
 
 
 ```
