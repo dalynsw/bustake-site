@@ -1,6 +1,6 @@
 # Quick start
 
-The Twilio SDK includes languages such as NodeJS, Java, C#, PHP, Python, Ruby, Go, but now we have another new option which is designed purposely for the 'Voice app' - `Bustake Script`.
+The Twilio SDK includes languages such as NodeJS, Java, C#, PHP, Python, Ruby, Go, but now we have another new option which is designed purposely for the 'Voice app' - `Bus Script`.
 
 ## hello world
 <!-- tabs:start -->
@@ -276,28 +276,60 @@ function level2(req, res){
 <!-- tabs:end -->
 
 
-Next >> [language reference](language.md).
-
 
 ## Registration
 
 The only way to regsiter a new account is by calling the number `+1720-709-2385`
 
-Once register successfully, a SMS with login account and password will be sent.
+Once register successfully, a SMS with login userid username and password will be sent.
+
+The username is only for logging in and receiving the sms which is your phone number. The userid is a uuid long string for identifying your account id.
 
 ## Development
 
 To develop a voice app, you need to have a Twilio phone number firstly, then you can
-upload your script by your sftp account. You will get a url which links this script
-and you can paste this link to this phone number to control the phone call of this number.
+upload your script by your sftp account. The script can be referenced by an url and the url can be setup at twilio admin website to control the phone calls of the purchased number.
 
   - How can we have a Twilio [number.](https://support.twilio.com/hc/en-us/articles/223135247-How-to-Search-for-and-Buy-a-Twilio-Phone-Number-from-Console)
-  - Install the SFTP client app [Filezilla](https://filezilla-project.org/download.php)
-  - Once registered, a login id and password is sent. You can use these to sftp upload
-    your scripts.
+  - The SFTP client app [Filezilla](https://filezilla-project.org/download.php)
+  - Once registered, a login userid username and password is sent. You can use the username which is your phone number and password to sftp upload your scripts.
 
     ![sftp login](https://raw.githubusercontent.com/jaynsw/bustake-site/main/docs/images/sftp-login.png)
     ![sftp root](https://raw.githubusercontent.com/jaynsw/bustake-site/main/docs/images/sftp-root.png)
-    
+
+```
+└── /
+    ├── etc
+    ├── logs
+    └── scripts
+```
+
+- The etc folder is designed to save the configuration files
+- The logs folder contains call logs of each call. These logs can be used to debug the program and analysis the call flow.
+- The scripts folder is designed to save the `bus scripts`. You should upload your scripts into this folder. Your program files should have an extension name with the `.bus` such as `test.bus`.
+
+- The url of the script is
+```
+    └── /
+    ├── etc
+    ├── logs
+    └── scripts
+           └── test.bus    //https://twlo.bustake.com/script/voice/{userid}/test.bus
+
+```
+such as https://twlo.bustake.com/script/voice/a37041a3cc288e8cd5add2d1eb0c358b/test.bus
+
+- You can validate your script grammer by the [tools](tools.md)
+- Once every is done, if you want to test the script by calling your number, you can specify the url of your script in twillio admin website for controlling the phone calls.
+```
+Phone Numbers / Manage Numbers /Active Numbers /
+```
+![twillio numbers](https://raw.githubusercontent.com/jaynsw/bustake-site/main/docs/images/twlo-number.png)
+
+- Click the save button and everything is done. 
+
+You can call your number now. For every call there is a call log file generated under the logs folder.
 
 
+
+Next >> [language reference](language.md).
