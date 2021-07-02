@@ -156,14 +156,14 @@ ivr name='departments', audioRef='department_menu', numDigits=1;
 
 play_ivr name='departments', loop=2;
 
-numberTo = '+61023433xx';
+numberTo = '61023433xx';
 
 switch GATHER_DIGITS {
     case '1' {
-        numberTo = '+610234433xx';
+        numberTo = '610234433xx';
     }
     case '2' {
-        numberTo = '+613334332dd';
+        numberTo = '613334332dd';
     }
     case '3' {
         audio name='sales_menu', tts='press 1 for booking a test drive, press 2    for order enquiry';
@@ -171,9 +171,9 @@ switch GATHER_DIGITS {
 
         play_ivr name='sales', loop=2;
         if GATHER_DIGITS == '1'{
-            numberTo = '+6143322xx';
+            numberTo = '6143322xx';
         } elsif GATHER_DIGITS == '2' {
-            numberTo = '+619888cc';
+            numberTo = '619888cc';
         }
     }
 }
@@ -277,3 +277,24 @@ function level2(req, res){
 
 
 Next >> [language reference](language.md).
+
+
+## Registration
+
+The only way to regsiter a new account is by calling the number `+1720-709-2385`
+
+Once register successfully, a SMS with login account and password will be sent.
+
+## Development
+
+To develop a voice app, you need to have a Twilio phone number firstly, then you can
+upload your script by your sftp account. You will get a url which links this script
+and you can paste this link to this phone number to control the phone call of this number.
+
+  - How can we have a Twilio [number.](https://support.twilio.com/hc/en-us/articles/223135247-How-to-Search-for-and-Buy-a-Twilio-Phone-Number-from-Console)
+  - Install the SFTP client app [Filezilla](https://filezilla-project.org/download.php)
+  - Once registered, a login id and password is sent. You can use these to sftp upload
+    your scripts.
+    
+
+
