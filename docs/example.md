@@ -157,7 +157,7 @@ if GATHER_DIGITS == '1' {
 
 ```
 
-## app.js
+## VoicePortal.js
 ```js
 const {asyncMiddleware} = require('middleware-async');
 
