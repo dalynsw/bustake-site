@@ -5,7 +5,7 @@ When you are calling this number `+1720-709-23851`. The following script will gu
 ## portal.bus
 
 ```bus
-// version=1, timezone='Australia/Sydney', voice='Polly.Emma'
+// version=1, timezone='America/Los_Angeles', voice='Polly.Emma'
 
 main_menu_tts =`
 [1s]
@@ -47,7 +47,7 @@ switch GATHER_DIGITS {
 ## register.bus
 
 ```bus
-// version=1, timezone='Australia/Sydney', voice='Polly.Ivy'
+// version=1, timezone='America/Los_Angeles', voice='Polly.Ivy'
 
 register_checking_tts=`
 [1s]
@@ -105,7 +105,7 @@ if GATHER_DIGITS == '1' {
 
 ## change_password.bus
 ```bus
-// version=1, timezone='Australia/Sydney', voice='Polly.Kimberly'
+// version=1, timezone='America/Los_Angeles', voice='Polly.Kimberly'
 
 status_checking_tts=`
 [1s]
