@@ -1,16 +1,16 @@
 
 # Protect Your Mobile Number
 
-This voice app firstly checks the current time is out of hours or not. If not, it will ask  the caller to enter 1 if the caller is a job agent or 2 if the caller is looking for building IVR, then the app derverts the call to the mobile number, when the mobile number is answered, it will play a `telling message` to remaind the receiver is `job agent` or  `ivr works`.
+This voice app is used to protect your personal mobile number. You can buy a local landline number from Twillio website. You can link the following `bus script` with the number. When an inbound call comes and hit this script, it firstly checks the current time to see whether is out of hours. If not, it will ask  the caller to enter 1 if the caller is a job agent or 2 if the caller is looking for building IVR, then the app derverts the call to the mobile number, when the mobile number is answered, it will play a `telling message` to remaind the receiver is `job agent` or  `ivr works`. If it is out of hours, it will play an message to tell the caller to call again between 9am to 5pm then hang up.
 
 ```bus
-// version=1, timezone='Australia/Sydney', voice='Polly.Russell'
+// version=1, timezone='America/Los_Angeles', voice='Polly.Russell'
 
 if HOUR < 9 || HOUR > 16 {
 
     after_hours =`
 [1s]
-Sorry I am Jay.[200ms]
+Sorry I am Ben.[200ms]
 I am not available now.
 Please call me between (9 am to 5 pm )[emphasis level="strong"]
 Bye Bye.
@@ -22,7 +22,7 @@ Bye Bye.
 
 main_menu_tts =`
 [500ms]
-Hello I am Jay.
+Hello I am Ben.
 
 Press 1 [200ms] if you are a (job agent)[emphasis level="strong"]
 Press 2 [200ms] if you are looking for building a (voice App)[emphasis level="strong"]
