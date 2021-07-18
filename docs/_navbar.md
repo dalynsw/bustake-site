@@ -7,7 +7,12 @@
   * [example](example.md)
   * [Tools](tools.md)
 
+* Community
+
+  * [Google Group](https://groups.google.com/u/2/g/bustake)
+
 
 * Register 
   * [Register](quickstart.md#registration-and-changging-password)
   * [Change Password](quickstart.md#registration)
+

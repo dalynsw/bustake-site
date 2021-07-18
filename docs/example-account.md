@@ -1,8 +1,12 @@
-# Examples
+# Account Managment
 
-When you are calling this number `+1720-709-23851`. The following script will guid the call flow.
+This is the real sourc code of the program of bustake account regsiter / changing password. 
+
 
 ## portal.bus
+
+This script is the main entry point of the `account voice app`. You make a call, the call will firstly hit this program. The voice app firstly play a menu to ask the caller to choose `option 1` to regsiter and `option 2` to change password. The system will send a SMS with the login username and password, then you can login the `web portal` by these credentials.
+
 
 ```bus
 // version=1, timezone='America/Los_Angeles', voice='Polly.Emma'
@@ -74,6 +78,8 @@ switch GATHER_DIGITS {
 
 ## register.bus
 
+The phone call will be redirected to this script when pressing the `option 1`.  It plays a message to tell the caller to wait and then send a http `GET request` by the `fetch statement` to the `backend` which is a url. The `backend` will reply back `variables` and the script can use the replied variables to do the next works.
+
 ```bus
 // version=1, timezone='America/Los_Angeles', voice='Polly.Ivy'
 
@@ -88,8 +94,6 @@ play_audio ref='register_checking';
 userURL = template format='http://localhost:8020/account/user/%s', values=[FROM];
 fetch url=userURL;
 
-
-audio name='no_input', tts='[1s]no input detected.';
 
 if userid {
 
@@ -118,6 +122,7 @@ Press 1 to return to the main menu [200ms] or just hang up.
 `;
 
 audio name='return_main_menu', tts=return_main_menu;
+audio name='no_input', tts='[1s]no input detected.';
 ivr name='return_main_menu', audioRef='return_main_menu', audioNoInputRef='no_input', numDigits='1';
 play_ivr ref='return_main_menu', maxLoop=2, timeout='10';                                   
 
@@ -130,6 +135,28 @@ if GATHER_DIGITS == '1' {
 }
 
 ```
+
+- line 1, the first line must be a comment line with `version`, `timezone` and `default voice`. The timezone will be used to caculate the local time, the `voice` is used to the `text to speech`.
+
+- lines 3 - 6 are an `assignment statement` which creates a `string object` which value is used as the `tts` next.
+- line 8 is an `audio statement` which creates an `audio object` from a `tts` which can be played latter.
+- line 9 plays a message to ask the caller to wait
+- line 11 is an `assignment statement` which creates a `string` object which is a url pointing to `a background web program`
+- line 12 is a `fetch statement` which sends a http get request to the `background web program`
+- lines 15 - 34 are a `if statement` 
+- line 15 checks the `object userid` which is returned from the above `fetch statement`
+- lines 17 - 18 are executed when the `userid` object exists. This means the user exists already.
+- line 17 is an `audio statement` which creates an audio object from a `tts`
+- line 18 is a `play_audio statement` which plays the above `audio` object.
+- lines 22 - 32 are executed when the object `userid` does'nt exist.
+- line 22 is an `assignment statement` which is from the built-in `template function` to make a `string object` value is an url
+- line 23 is a `fetch statement` to send a http get request to the backend.
+- line 24 is an `assignment statement` creates a `string object` which is value of a `tts`.
+- line 28 is an `assignment statement` creates a `string object` from the built-in `template function`, the values of the `template function` are returned from the above `fetch statement`
+- line 29 is an `sms statement` which sends a sms message to the specifed number and the content from the above `string object`.
+- line 31 is an `audio statement` tts from an `string literal` of the congratulations message.
+- line 32 is an `play_audio statement` play the above `audio object`.
+- lines 36 - 38 are ivr to ask the caller to return the `main menu` or hang up. 
 
 ## change_password.bus
 ```bus

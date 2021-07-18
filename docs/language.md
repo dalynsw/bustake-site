@@ -544,6 +544,35 @@ num = random min=0, max=100;
     \\sstr value is 'bcd'
 ```
 
+### url_encode
+
+This function encode a string into a url.
+
+```url_encode
+    url = template formt='a=%s&b=%s', values=[a, b];
+    url = url_encode value=url;
+    fetch url=url;
+```
+
+### template_url_encode
+
+This function will create an url which point to a template file. There is `arg`` argment which can be used and the path of the template file which under the `templates` folder.
+
+```template_url_encode
+    tellingURL = templte_url_encode arg='1', path='telling.hb';
+    dial value='61403155614', url=tellingURL;
+```
+
+### static_url_encode
+
+This function will create an url which point to a static file. The path of the static file which under the `static` folder.
+
+```static_url_encode
+    tellingURL = static_url_encode path='abc/cde/telling.xml';
+    dial value='61403155614', url=tellingURL;
+```
+
+
 
 ## _callend.bus
 The `_callend.bus` is executed when every call ended. The `sms`  `email`, `fetch` statement can be usedto send variables to the third parties.

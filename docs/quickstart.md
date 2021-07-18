@@ -301,12 +301,16 @@ upload your script by your sftp account. The script can be referenced by an url 
 └── /
     ├── etc
     ├── logs
+    ├── static
+    ├── templates
     └── scripts
 ```
 
-- The etc folder is designed to save the configuration files
-- The logs folder contains call logs of each call. These logs can be used to debug the program and analysis the call flow.
-- The scripts folder is designed to save the `bus scripts`. You should upload your scripts into this folder. Your program files should have an extension name with the `.bus` such as `test.bus`.
+- The `etc` folder is designed to save the configuration files
+- The `logs` folder contains call logs of each call. These logs can be used to debug the program and analysis the call flow.
+- The `scripts` folder is designed to save the `bus scripts`. You should upload your scripts into this folder. Your program files should have an extension name with the `.bus` such as `test.bus`.
+- The `templates` folder is designed to save the `handlebars` scripts. These script can only work with the `bus script` such as in the `dial` statement `url` attribute. All the built-in objects of call can be access directly by the `handlebars` script. The `handlebar-helps` also availabe. There is a built-in function call `template_url_encode` can be used to generate the url which points to these template files.
+- The `static` folder is designed for save the static files. These file can be accessed by the url of the built-in function `static_url_encode`.
 
 - The url of the script is
 ```
