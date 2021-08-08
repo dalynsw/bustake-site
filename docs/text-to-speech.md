@@ -1,18 +1,10 @@
 # Text to Speech
 
-This is a very powerful feature of the bustake script. It allows you to compose a synthesis voice to make the phone call more like a human natrual speaking.
+The goal of Text to Speech is to simulate natural speech by text. These texts can be used in the `tts` attribute of `audio objects`.
 
-
-The tts content can be used in  the `audio` statement's `tts` attribute
 
 ## Paragraphs
-
-[amazon docs - p](https://docs.aws.amazon.com/polly/latest/dg/supportedtags.html#p-tag)
-
-A tts can include multi paragraphs. These paragraphs can be separated by the multi `carige return` keys.
-
-The following example contains 2 paragraphs. The second paragraph starts from `Press 1 for (registration.)[emphasis level="strong"] [200ms]`
-
+Paragraph. A `tts` can contain multiple paragraphs. There are more than two blank lines between paragraphs
 
 
 ```paragraphs
@@ -27,33 +19,30 @@ Press 2 for (changing password.)[emphasis level="strong"] [200ms]
 ```
 
 ## Sentences
+Sentences. A paragraph can contain multiple sentences. Sentences end with a period.
 
-[amazon docs - s](https://docs.aws.amazon.com/polly/latest/dg/supportedtags.html#s-tag)
-
-Each line is a sentence. No matter there  is a `.` at the end or not. 
 
 ## Text
+`Text` is ordinary text.
 
-Text is the normal words you don't want to polish the pronauncation.
 
 ## break
+`break` is a period of silence. It can be expressed in seconds and milliseconds.
 
 The break can be in `seconds` or `milli seconds`.
 `[2s]`   `[200ms]`
 
-[amazon doc - break](https://docs.aws.amazon.com/polly/latest/dg/supportedtags.html#break-tag)
-
-
 ## Modifiers
-
-Modifier is the  words you want to polish the pronauncation.
-
-The format of Modifier is `(words words words)[modifer key1="value1", key2="value2", key3="value3"]`
+Modifiers are used to modify the text and polish the pronunciation
+The text modifier format is as follows: `(words words words)[modifer key1="value1", key2="value2", key3="value3"]`
 
 
-### sayAs
-
-[amazon doc - say_as](https://docs.aws.amazon.com/polly/latest/dg/supportedtags.html#say-as-tag)
+### say-as
+[amazon doc - say-as](https://docs.aws.amazon.com/polly/latest/dg/supportedtags.html#say-as-tag)
+```say-as
+Your phone number (+10500)[say-as interpret-as='telephone']
+Your current balance is (1000)[say-as interpret-as='cardinal'] dolar
+```
 
 ### emphasis
 
@@ -96,5 +85,3 @@ level attribute values:
 
 [amazon docs - sub](https://docs.aws.amazon.com/polly/latest/dg/supportedtags.html#sub-tag)
 
-
-Next >> [example](example.md).

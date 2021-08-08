@@ -1,67 +1,88 @@
 # Language Reference
 
-## value types
-In Bustake script, a value can be in 4 types, `string`, `number`, `boolean`, and `array`
+## Common type value
+`Bus Script` has four common data value types, `string`, `number`, `boolean`, and `array`
 
 ### string
-A string value is quoted by `'` or `"` or ```
-Valid string example: `'hello world'` or `"hello world"` ``hello world`` 
+string values, For example: 
+```
+'hello world'
+"hello world"
+`hello world`
+```
 
 ### number
-A number value can be an integer or float. Exmples: `1, 2, 3` or `1.10, 2.20, -3.4`
+Numeric values ​​can be integers or floating point numbers. For example: `1, 2, 3` or `1.10, 2.20, -3.4`
 
 ### boolean
-A boolean value is `true` or `false`.
+Boolean value can only be `true` or `false`.
 
 ### array
-Array is a container type of value which contains other values. The value can be in different types. Examples: `[1,2,'hello',4]` or `[1.01, [1, 2], -3, 'hello',true, 4]`
+An array is a container type that can hold other types of values. The values ​​in the array can be different types of values. For example: `[1,2,'hello',4]` or `[1.01, [1, 2],- 3,'hello',true, 4]`
 
-### object
-An object is a container of a value. You can think of an object as a box which contains a value. A value can have type of `string`, `number`, `boolean` and `array`.  The value can be saved into a box which is an object. The object can be referenced.  Objects can only be created by the `assignment` statment and the `fetch` statement. The built-in object `auduio` is created by the audio statement. The built-in object `ivr` is created by the ivr statement. The built-in objects can be reference by the `name` attribute.
+
+## Object
+Objects are containers of various types of values. Objects can be used to hold string values, numeric values, boolean values, array values, and the values ​​of built-in objects. Once an object is created, it can be referenced anywhere in the script afterwards.
 
 ```object
-a = 'hello world'; //a is a string object
-b = 10; //b is  a number object
-c = [1, 2, 'love', 4]; //c is an array object which contains 4 values.
-e = a; //e is a string object the value is from the object `a`
-f = true; //f is a boolean object
+a = 'hello world'; //`a` is a string object, the value is `hello world`
+b = 10; //`b` is a number object, the value is 10
+c = [1, 2, 'love', 4]; //`c` is an array type. c[2] is the string value `love`.
+e = a; //The value of the `e` object is the same as the `a` object, which is a string value `hello world`
+f = true; //`f` is a boolean object, the value is `true`
 ```
 
 ## expressions
-An expression is a `value`. expression value is computed from other  values or `objects` which contain values. These values are connected by `operators`. Different operator is in different `precedence` when caculating.
+The result of an expression is a value. This value comes from the calculation of the value of other objects. These values ​​are connected by operators. Different operators have different precedence.
+The value of the expression can be a string value, a boolean value, a number value, an array value.
 
-the precedence of operators are:
+ The following is the precedence
+ -  operators:
     - `()`
-    _ `[]`
+    - `[]`
     - `not !`
     - `* / %`
     - `+ -`
     - `|| && or and`
     - `> < >= <= == !=`
 
-### literal expression
-the literal expression is value of type `string`, `number` and `array`. Examples: `1, 2, 0.9, 'abc', [1,23, 'abc']`
+### Literal expression
+Literal expressions are literal values. For example, these are literal expressions, and they are also literal values: `1, 2, 0.9,'abc', [1,23,'abc']`
 
-### logical expression
-The logical expression is a `boolean value` which is caculated by `||` , `&&` or `and`. Examples: `ab && cd` `cc or abc`  `ee || df`
+### Logical expression
+The value of the logical expression is a boolean. The logical expression is connected by the following operators `not` `!` `||`, `&&`, `or`, `and`. For example: `ab && cd` `cc or abc` ` ee || df`
 
-### comparison expression
-The logical expression is a `boolean value` which is caculated by `>` `<` `>=` `<=` `==` `!=`.  Examples: `ab > 5` `cc <= abc`  `ee == df`
+### Comparison expression
+The value of the comparison expression is a boolean value. The operators of the comparison expression are as follows: `>` `<` `>=` `<=` `==` `!=`. For example: `ab > 5` `cc <= abc` `ee == df`
 
-### parentheses
-Parentheses is a group.  The group has high precedence. examples `(bc > 5 || isTrue)`
+### Bracket expression
+Bracket expression is a group. This group will have high priority. For example `(bc> 5 || isTrue)`
+
+### string operator
+The result value of the string operator is a string.
+For example: `'abc' +'dfd' +'adf'`  `abcdfdadf`
+
+### numeric operator
+The result value of a numeric operator is a number.
+The numeric operators are as follows `+ - * / %`
 
 
-### string operators
 
-String concat example: `abc + 'dfd' + adf`
+## Statements
+A statement is the most basic executable unit of a script. A script is a series of executable statements
 
-### number operators
-Number operators are `+ - * / %`
+### assignment
+The `assignment` statement is used to assign a value to an object. `;` is the end character of the statement.
 
-## block
+```object
+a = 'hello world';
+b = 10;
+c = [1, 2, 'love', 4];
+e = a;
+```
 
-A block is a collection of statements. A block starts with an `{` and ends with a o`}`.
+## block statement
+A statement block is a collection of multiple statements executed in sequence. `{` indicates the beginning of a statement block. `}` indicates the end of a statement block.
 
 ```block
 if good { //a starts of a block
@@ -71,75 +92,20 @@ if good { //a starts of a block
     
 } //an ends of a block
 
-switch condition { //a starts of a block
-    case 'abc {
+switch condition { // a starts of a block
+    case 'abc { // a starts of another block
         e = ds;
         email subject='sdfsdf', content='sfsdf';
-    }
-    case 'cdde' {
+    } // an ends of the above block
+    case 'cdde' { // a starts of another block
         noop;
-    }
-} //an ends of a block
+    } // an ends of the above block
+} // an ends of a block
 
-```
-
-## statements
-
-A statement is an executable unit of a script.  A script is a collection of statments.
-
-### if
-
-The `if` statement runs a body when a expression's value is true.
-
-```if
-if a > 5
-    //a indent starts a body
-    a = b;
-    c = d;
-    //a outdent ends a  body
-```
-
-### if else
-
-The `if else` statement runs 2 blocks. When the exprssion's value is true, it runs the `if` block, otherwise the `else` block.
-
-```if else
-if a > 5 {
-    //if block
-    a = b;
-    c = d;
-} else {
-    //else block
-    ddd = 'asdfasf';
-    dff = 223
-}
-```
-
-### if elsif else
-
-The `if else` statement runs multi blocks. When the exprssion's value is true, it runs the `if` block, otherwise it will check the other `elsif` blocks, otherwise the `else` block.
-
-```if elsif else
-if a > 5 {
-    //if block
-    a = b;
-    c = d;
-} elsif a > 2 {
-    //elsif  block
-    ds = 'ddd';
-} elsif a > 1  {
-    //elsif  block
-    fsdf = 123;
-} else {
-    //else  block
-    ddd = 'asdfasf';
-    dff = 223;
-}
 ```
 
 ### switch case
-
-The `switch case` statement runs multi blocks based on the expression matching. When the exprssion of a `case statement` value is true, it runs the `block of the case`, otherwise it will check the other `cases`, otherwise the `default` block.
+The `switch case` statement contains a switch expression, multiple `case` blocks and a `default` block. Each `case` block contains one `expression` and one `block`, if the `case expression` is equal to `switch expression`, the `block` of the `case statement` is run. If there is no `case expression` equal to the `witch expression`, the `default block` is run.
 
 ```switch case
 switch age {
@@ -160,140 +126,68 @@ switch age {
 }
 ```
 
-### assignment
 
-An `assignment` statement puts a value into an object. It ends with `;`
+### if
+The `if statement` consists of two parts, one `Boolean expression` and one `block`. This `block` is run when the Boolean value is `true`.
 
-```object
-a = 'hello world';
-b = 10;
-c = [1, 2, 'love', 4];
-e = a;
+```if
+if a > 5 {
+    //if block
+    a = b;
+    c = d;
+}
 ```
 
-### audio
-The `audio` statement creates an `audio object`. The object can be accessed by the name.
-
-```audio
-audio name='ivr_department_menu', voice='alice', file='departments_menu_file_name', tts='press 1 for sales department, press 2 for support department, press 3 for booking an appointment.';
-
-```
-- attributes
-    - name: the name of the object. The object can be referenced by the name
-    - file: the audio file name of saved under the `audio repository`
-   
+### if else
+The `if else statement` contains three parts, one `Boolean expression` and tow `block`. When the Boolean value is `true`, the `if block` is executed, and when the value is `false`, the `else block` is executed.
 
 
-
-### ivr
-
-The `ivr` statement creates an `ivr object`. The object can be referenced by the name.
-
-```ivr
-
-ivr name='department', audioRef='ivr_department_menu', numDigits=1;
-
+```if else
+if a > 5 {
+    //if block
+    a = b;
+    c = d;
+} else {
+    //else block
+    ddd = 'asdfasf';
+    dff = 223
+}
 ```
 
-- attributes
-    - name: the name of the created object.
-    - audioRef: the audio object used be play before gathering the dtmf inputs.
-    - audioNoInputRef: the audio object used be play when no inputs detected.
-    - numDigits: the number of dtmf input expected.
+### if elsif else
+The `if else statement` contains one `if`, multiple `elsif` and one `else`. When the `if` boolean value is `true`, the `if` block is executed, otherwise the value of `elsif` is calculated When `true`, the corresponding `elseif block` is executed, and when all the `previous blocks` are not satisfied, the `else block` is executed.
 
-
-### play_audio
-
-Play the audio object.
-
-```play_audio
-
-play_audio ref='recording_alert', loop=2, voice='alice';
-
+```if elsif else
+if a > 5 {
+    //if block
+    a = b;
+    c = d;
+} elsif a > 2 {
+    //elsif  block
+    ds = 'ddd';
+} elsif a > 1  {
+    //elsif  block
+    fsdf = 123;
+} else {
+    //else  block
+    ddd = 'asdfasf';
+    dff = 223;
+}
 ```
 
-- attributes
-    - ref: the name of audio object to be played.
-    - voice: the name of voice. please ref from [voice_name](voice_name)
-    - loop: loop count. default is 1.
-
-
-### play_ivr
-
-Play the IVR object and wait to gather the dtmf inputs or the recognized `speech phrase` . Please see
-the built-in objects.
-
-```play_ivr
-
-play_ivr ref='department';
-
-```
-
-- attributes
-    - ref: the name of ivr object to be played.
-
-### dial
-
-Dial an outbound leg and bridge the inbound leg when success.
-
-```dial
-dial values=['6123443xx'];
-```
-
-- attributes [twiML dial] (https://www.twilio.com/docs/voice/twiml/dial)
-    - values: the multi terimation numbers 
-    - value the terimation number.
-    - trunkType: pstn/sip default is pstn
-    - answerOnBridge: 
-    - callerId:
-    - callReason:
-    - hangupOnStar:
-    - record
-    - recordingTrack
-    - ringTone
-    - timeLimit
-    - timeout
-    - trim
-
-
-### redirect
-
-redirect the call flow to a specified script. The statements after the `redirect` are not being executed afterwards.
-
-
-- attributes
-    - `path` the path of the new script redirect to. 
-
-```redirect
-redirect path='/register.bus'
-```
-
-### hang_up
-
-The`Hang_up` statement ends a call. 
-
-```hang_up
-hang_up
-```
-
-
-### reject
-
-The `reject` statement rejects an incoming call to your Twilio number without billing you. This is very useful for blocking unwanted calls.
-
-```reject
-reject
-```
 
 ### fetch
+The `fetch statement` issues an http get request, this request returns multiple rows of keys and values. ​​which are used to create a series of `string objects`. `;` is the end character of the statement.
 
-The `fetch` statement will send a `http get` request and download a formated string. The string includes lines and each line in the `key=value` format and termiated by a `carriage return` key.
+- Attributes
+    - url: string type. http get url.
+    - timeout: Number type. Timeout, in seconds.
 
 ```fetch
 fetch url='https://www.test.ccc/abc', timeout=2;
 ```
 
-The response of the fetch result must be in this format:
+The return must be multiple lines, each line contains a `key=value` as follows:
 
 ```fetch result
 key1=value1
@@ -301,252 +195,194 @@ key2=value2
 key3=value3
 ```
 
-The fetched keys are created `string objects names` and the values are the corresponding `string values`. The app statementsa afterwards can accesses these string objects.
-
-- attributes
-    - url
-    - timeout
-
-
-### sms
+- line 1 will create an string object `key1` with value `value1`
+- line 2 will create an string object `key2` with value `value2`
+- line 3 will create an string object `key3` with value `value3`
 
 ### email
+The `email statement` is used to send email to the specified address, and `;` is the end character of the statement.
 
-The `email` statement  will send an email
+- Attributes
+    - to: string type. Email receiver address.
+    - subject: string type. Email subject
+    - text: string type. Email text content
 
 ```email
-email subject='abc', content='cddd';
+email to='abc@abc.com', subject='abc', content='cddd';
 ```
-
-- attributes
-    - subject
-    - content
 
 
 ### log
-
-There is a log file under the `logs` folder for each phone call. The log file recorded the journey of the call by the `bustake scripts`. To help the developer to diagnose, the `log` statement can be added in the places of the script.
-
-- attributes
-    - message:  the message you want to save into the log file. You can use the `assign` statement with the `template` funcation to compose the `message` string and saving the values into the log file.
-
-## built-in objects
-
-### CALL_SID
-
-The Twilio-provided Call SID that uniquely identifies the Call
-
-### FROM
-
-The phone number, SIP address, Client identifier or SIM SID that made this call. Phone numbers are in E.164 format (e.g., +16175551212). SIP addresses are formatted as name@company.com. Client identifiers are formatted client:name. SIM SIDs are formatted as sim:sid.
-
-
-### TO
-The phone number, SIP address, or client identifier to call.
-
-### ACCOUNT_SID
-
-Your account ID.
-
-### CALL_STATUS
-
-The status of this call. Can be: queued, ringing, in-progress, canceled, completed, failed, busy or no-answer. See Call Status Values below for more information.
-
-### DIRECTION
-A string describing the direction of the call:
-
-    - inbound for inbound calls
-
-    - outbound-api for calls initiated via the REST API
-
-    - outbound-dial for calls initiated by a <Dial> verb.
-
-### FORWARDED_FORM
-
-This parameter is set only when Twilio receives a forwarded call, but its value depends on the caller's carrier including information when forwarding.
-
-Not all carriers support passing this information.
-
-### CALLER_NAME
-
-This parameter is set when the IncomingPhoneNumber that received the call has had its VoiceCallerIdLookup value set to true ($0.01 per lookup).
-
-### PARENT_CALL_SID
-
-A unique identifier for the call that created this leg.
-
-This parameter is not passed if this is the first leg of a call.
-
-### FORWARDED_FORM
-
-This parameter is set only when Twilio receives a forwarded call, but its value depends on the caller's carrier including information when forwarding.
-
-### CALLER_NAME
-
-This parameter is set when the IncomingPhoneNumber that received the call has had its VoiceCallerIdLookup value set to true.
-
-### PARENT_CALL_SID
-
-A unique identifier for the call that created this leg.
-
-This parameter is not passed if this is the first leg of a call.
-
-
-### FROM_CITY
-
-The city of the caller
-
-### FROM_STATE
-
-The state or province of the caller
-
-### FROM_ZIP
-
-The postal code of the caller
-
-### FROM_COUNTRY
-
-The country of the caller
-
-### TO_CITY
-
-The city of the called party
-
-### TO_STATE
-
-The state or province of the called party
-
-### TO_ZIP
-
-The postal code of the called party
-
-### TO_COUNTRY
-
-The country of the called party
-
-### DIAL_CALL_STATUS
-
-The outcome of the `dial` attempt. See the DialCallStatus section below for details.
-
-### DIAL_CALL_SID
-
-The call sid of the new call leg. This parameter is not sent after dialing a conference.
-
-### DIAL_CALL_DURATION
-
-The duration in seconds of the dialed call. This parameter is not sent after dialing a conference, or if a Child call is redirected to a new TwiML URL before being disconnected.
-
-### CALL_DURATION
-
-The duration in seconds of the just-completed call.
-
-### RECORDING_URL
-
-The URL of the phone call's recorded audio. This parameter is included only if Record=true is set on the REST API request, and does not include recordings from `dial` or `record`
-
-### RECORDING_SID
-
-The unique id of the Recording from this call.
-
-### RECORDING_DURATION
-
-The duration of the recorded audio (in seconds).
-
-### GATHER_DIGITS
-
-The dtmf digits entered when running the `play_ivr` statement.
-
-### GATHER_SPEECH_RESULT
-
-The `phrase`  transcribed result of your caller's speech when `play_ivr` statement.
-
-### GATHER_CONFIDENCE
-
-contains a confidence score between 0.0 and 1.0. A higher confidence score means a better likelihood that the transcription is accurate.
-
-
-## built-in functions
-
-The built-in functions is tools to manipulate `string`, `number` value
-
-### starts_with
-
-return `true` or `false` when a `string` starts with a prefix.
-
-```starts_with
-    isAustralia = starts_with value=FROM, prefix='+61';
+The `logs statement` can be used to help debugging. The value of the concerned object can be composed into a string and printed to the log file through the `log statement` to help analyze errors and call flow. `;` is the end character of the statement.
+
+- Attributes
+    - message: string value. This string will be printed to the log.
+
+```log
+    counter = 100;
+    value = 'hello';
+    message = template format='counter is %d, value is %s', values=[100, hello];
+    log message=message;
 ```
 
-### ends_with
+## Built-in functions
+Built-in functions can be used to process string values, numeric values.
 
-return `true` or `false` when a `string` ends with a suffix.
+
+### starts_with
+Determine whether the string value contains the specified string value prefix.
+
+- Return Value: 
+    -  Boolean type. `true` means match and `false` means no match.
+
+- Attributes:
+    - value: String object
+    - prefix: Prefix string value
+
+```starts_with
+    isUSA = starts_with value=FROM, prefix='+1';
+```
+
+Determine whether the `FROM` string object starts with prefix `+1`. `isUSA`  is assigned the boolean object.
+
+
+### ends_with
+Determine whether the string value contains the specified string suffix.
+
+- Return Value: 
+    - Boolean type. `true` means match and `false` means no match.
+
+- Attributes:
+    - value: String object
+    - suffix: Suffix string value
 
 ```starts_with
     isEndABC = ends_with value=TO, suffix='abc';
 ```
 
-### template
+The result of judging whether the `TO` string object ends with the `abc suffix`.  the result is ​​assigned to the `isEndABC` boolean object.
 
-return a string from a format string and values
+### template
+`template` functions are used to generate formatted string objects
+
+- Return Value:
+    - String object
+
+- Attributes:
+    - format: Formated template string
+    - values: The parameter array in the template.
 
 ```template
-email_content = template format="I love %s, I am %s",  values=['Twilio', 'Jay'];
-\\email_content is a string object with value 'I love Twilio, I am Jay'
+email_content = template format="I love %s, I am %s",  values=['Twilio', 'Ben'];
 ```
 
-### split
+The `email_content` string object is created by the string value of `I love Twilio, I am Ben`
 
-return a an array of string separated by a separator
+### split
+`split` string values ​​into array of string objects.
+
+- Return Value:
+    - Array of string objects.
+
+- Attributes:
+    - value: String Object
+    - separator: Delimiter string.
 
 ```split
 values = split value="a&b&c&d", separator="&";
-\\ the values is array object with ['a','b','c','d']
 ```
+Split the string `a&b&c&d` according to the `& separator`, the result is `['a','b','c','d']`
+
 
 ### match
+Use regular expressions to match strings
 
-return `true` or `false` when a `string` value match the regex 
+- Return Value:
+    - boolean value.
+
+- Attributes:
+    - value: string object
+    - pattern:  string object of the regular express
 
 ```match
-is_number = match value="str", pattern='[0..1]+';
+is_number = match value="1234", pattern='[0..9]+';
 ```
 
-### number
+ `is_number` is a boolean object with value `true` assigned from the `match function`  when value is  `1234` and `pattern` is the  regex `[0..9]+`
 
-convert a `string` value to a `number` value
+
+### number
+Convert string value to numeric value
+
+- Return Value:
+    - number value.
+
+- Attributes:
+    - value: string object
 
 ```number
     num = number value='123';
-    \\num value is 123 in number object.
 ```
 
-### string
+Convert the string `'123'` into a numeric value `123`
 
-convert a `number` value to a `string` value
+### string
+Convert a numeric value to a string value
+
+- Return Value:
+    - string value
+
+- Attributes:
+    - value: number value
 
 ```number
     str = string value=123;
-
-    \\str value is '123' in string object.
 ```
 
+Convert the numeric value `123` to the string `'123'` 
+
 ### random
+Generate random number value
 
-return a random number between the `min` and `max`
+- Return Value:
+    - number value.
 
+- Attributes:
+    - min: number value. Minimum
+    - max: number value. Maximum
+
+```random
 num = random min=0, max=100;
+```
+
 
 ### substring
+Take substring
+
+- Return Value:
+    - Substring value.
+
+- Attributes:
+    - value: strong object.
+    - start: number value. Substring start point
+    - end: number value. End of substring
+
 
 ```substring
     sstr = substring value='abcde', strart=1, end=4;
-
-    \\sstr value is 'bcd'
 ```
 
-### url_encode
+cut the substring`'bcd'` and assign it to the string object `sstr`
 
-This function encode a string into a url.
+
+### url_encode
+Encode url
+
+- Return Value:
+    - string object.
+
+- Attributes:
+    - value: string object.
 
 ```url_encode
     url = template formt='a=%s&b=%s', values=[a, b];
@@ -554,28 +390,78 @@ This function encode a string into a url.
     fetch url=url;
 ```
 
-### template_url_encode
 
-This function will create an url which point to a template file. There is `arg`` argment which can be used and the path of the template file which under the `templates` folder.
+### template_url_encode
+Generate the url of the `handlebars` template
+
+- Return Value:
+    - url string object.
+
+- Attributes:
+    - path: string object, templte file path.
+
 
 ```template_url_encode
-    tellingURL = templte_url_encode arg='1', path='telling.hb';
-    dial value='61403155614', url=tellingURL;
+    tellingURL = templte_url_encode path='telling.hb';
 ```
 
 ### static_url_encode
+Generate static file url
+- Return Value:
+    - url string object.
 
-This function will create an url which point to a static file. The path of the static file which under the `static` folder.
+- Attributes:
+    - path: String, template file path.
 
 ```static_url_encode
     tellingURL = static_url_encode path='abc/cde/telling.xml';
-    dial value='61403155614', url=tellingURL;
 ```
 
 
 
-## _callend.bus
-The `_callend.bus` is executed when every call ended. The `sms`  `email`, `fetch` statement can be usedto send variables to the third parties.
+## Built-in objects
+
+APP_ID
+- Type: string
+
+SCRIPT_NAME
+-  Type: string
+
+URL
+- Type: string
+
+TIME_ZONE
+- Type: string
+such as America/Los_Angeles
 
 
-Next >> [text to speech](text-to-speech.md).
+START_TIME
+- Type: Number
+the number of milliseconds elapsed since January 1, 1970 00:00:00 UTC.
+
+
+YEAR
+- Type: Number
+such as 2020
+
+
+MONTH
+- Type: Number. 1-12
+
+DATE
+- Type: Number 1-31
+
+HOUR
+- Type: Number 0-23
+
+MINUTE
+- Type: Number 0-59
+
+SECOND
+- Type: Number 0-59
+
+WEEK_DAY
+- Type: Number 1-7
+
+MILLI_SECOND
+- Type: Number 0 - 1000

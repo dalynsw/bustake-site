@@ -1,12 +1,9 @@
 # Account Managment
-
-This is the real sourc code of the program of bustake account regsiter / changing password. 
+This is an example of user registration and password modification by making a call.
 
 
 ## portal.bus
-
-This script is the main entry point of the `account voice app`. You make a call, the call will firstly hit this program. The voice app firstly play a menu to ask the caller to choose `option 1` to regsiter and `option 2` to change password. The system will send a SMS with the login username and password, then you can login the `web portal` by these credentials.
-
+This is an `IVR` program that registers a new user by letting the user enter `1` on the keyboard, and enter `2` to change the password.
 
 ```bus
 // version=1, timezone='America/Los_Angeles', voice='Polly.Emma'
@@ -48,38 +45,26 @@ switch GATHER_DIGITS {
 ```
 
 
- - line 1, the first line must be a comment line with `version`, `timezone` and `default voice`. The timezone will be used to caculate the local time, the `voice` is used to the `text to speech`.
- - line 3 - 10, this is an `assignment statement` which create a `string object`. The value of the string object is the words of speaking in the format of SSML markdown. The `[1s]` means `silicen` in `1 second`, `[200ms]` means silence ins `200 millis-seconds`. For details please reference in the [text to speech](text-to-speech.md) section.
- - line 12,  this is an `audio` statement which creates an `audio` object. This object can be referenced by it `name`. This audio object's `tts` attribute links to an `string` object which is the above `main_menu_tts` `text-to-speech` string object.
- - line 13, this line creates another `audio` object. The `tts` attribute is an literal `string` object.
- - line 14, same as line 13 creates another `audio` oject.
- - line 15 creates an `ivr` object.
-    -  this `name` attribute is the name used to be referenced. 
-    - The `audioRef` attribute is the `name` of the `audio` object when the `ivr` object been played. 
-    - The `audioNoInputRef` attribute is the `name` of the `audio` object when no any inputs founded when playing the `ivr` object.
-    - The `numDigits` attribute specify how many `dtmf` key inputs the `ivr` object exepecting.
-
- - line 17, the is an `play_ivr` statement, which playing the `ivr` object.
-    - The `ref` attribute specify the `name` of the `ivr` object being played.
-    - The `maxLoop` attribute specify the maximum rounds of the playing. In this case it will play in 2 rounds.
-    - The `timeout` attribute specify the timeout in seconds of waiting the `dtmf` key inputs. If no inputs detected, One round is completed. If the inputs are dectected. The `play_ivr` statment return with the value of key inputs into an buit-in string object, the name is `GATHER_DIGITS`. 
-- line 19 - 34, this section is a `switch` statement,
-    - line 19, the switch statment will evaluate the built-in `GATHER_DIGITS` string object value. This value is from the above `play_ivr` statement's return.
-    - line 20, this is a `case` statement which against the evaluate result of the `switch` statement. In this case it is the `GATHER_DIGITS` string object. The case statement value is a string literal object `'1'`, if both values matched, this means when the built-in `GATHER_DIGITS` value is `'1'`,  the case statement will run it's own block of statments.
-        - line 21, this is the first line of statement of the `case` statement's which is a `redirect` statement. It redirects the current phone call into the new `bus script` to handle. The `path` attribute specify the new script path. In this case, the current call will be `redirect` into the `register.bus` script to handle the call..
-    - line 23 same as line 20, it will run when the value is `'2'`
-    - line 26 is when the value is empty, which means `no input` is detected. The only way to assign a value to the built-in `GATHER_DIGITS` object is from the `play_ivr` statement. When no inputs, the value will remains empty.
-        - line 27 is a `play_audio` statement.  The `ref` attribute value is `no_input` which will looking for `audio` object with the name of `no_input`. In this case, it will  play the tts with `[1s]no input detected.`
-        - line 28 is a `hang_up` statement. It will hangup the current call.
-    - line 30 is the default case statement. When the input value is not matching with `'1'` `'2'` empty string, such as when the `GATHER_DIGITS` value is `'3'` or others.
-        - line 31 is a `play_audio` statement will will play the `audio` object with then name of `'wrong_option'`. In this case, it  will play `[1s]wrong option entered, bye bye.`
-        - line 32 will hangup the current call.
+ - Line 1 must be a comment, the comment contains version information is `1`, the time zone is `Los Angeles`, and the default voice is `Polly.Emma`.
+ - Line 3-10, this is an assignment statement, which creates a string object. The value of this string is a text-to-speech.
+ - line 4 is silent for 1 second
+ - line 8 registration in emphasis
+ - line 9 changing password in emphasis
+ - Line 12, is an `audio` statement, which creates an audio object. The name is `main_menu`, and the content of tts comes from the string object value above.
+ - Line 13, is an `audio` statement, which creates an audio object. The name is `no_input`, and the content of tts is a string object value.
+ - Line 14, is an `audio` statement, which creates an audio object. The name is wrong_option, and the content of tts is a string object value.
+ - Line 15, is an `ivr` statement, which creates an `ivr` object with the name `main_menu`.
+ - line 17, is a `play_ivr` statement that plays the `ivr` object whose name is `main_menu`. The `audio` object specified by the `audioRef` of the `ivr` will be played first. If the user has no input, the `no_input` audio will be played, expecting the user to enter a number from the keyboard. `ivr` is played twice at most. Wait up to 10 seconds for each input
+ - line 19-34 is a `switch case` statement
+ - The line 19 `switch statement` will detect the value of a built-in string object `GATHER_DIGITS`, which comes from the result of the above `play_ivr` statement.
+ - Line 20-22, check whether the value of `GATHER DIGITS` is equal to the string `'1'`, if so, run this `case` statement. Line 21 is `redirect` to the `regsiter.bus` script
+ - Line 23-25, check whether the value of `GATHER DIGITS` is equal to the string 2, if it is, run this `case` statement. Line 24 is `redirect` to the `change_password.bus` script
+ - Line 26-29, Check whether the value of `GATHER DIGITS` is equal to an empty string. That is, there is no input, if it is, run this `case` statement. Line 27 plays `no_input` audio. Line 28 `hangs up`
+ - Line 30-33 are `default case statements`. When the input is neither `'1'` nor `'2'`, the `default statement` block will be executed. Line 31 plays the `wrong_option` audio. Line 32 `hangs up` the call.
 
 
 ## register.bus
-
-The phone call will be redirected to this script when pressing the `option 1`.  It plays a message to tell the caller to wait and then send a http `GET request` by the `fetch statement` to the `backend` which is a url. The `backend` will reply back `variables` and the script can use the replied variables to do the next works.
-
+Register an account. First play the audio and let the user wait. Then send an http request to the background to check whether the user is already registered, if not, create an account. The background returns the newly created user name, password, and ID. Then send a text message containing the user name and password , ID to the user. If it has been created, it will play a voice to tell the user that it has been registered. After that, play the IVR to allow the user to jump to the main menu or hang up.
 ```bus
 // version=1, timezone='America/Los_Angeles', voice='Polly.Ivy'
 
@@ -135,28 +120,32 @@ if GATHER_DIGITS == '1' {
 }
 
 ```
+- Line 1 must be a comment, the comment contains version information is 1, the time zone is Los Angeles, and the default sound is `Polly.Ivy`.
+- Lines 3-6 is an `assignment statement`, which is an assignment statement that creates a string object. The value of this string is a text code synthesized from speech input.
+- Line 4 Mute for 1 second when playing tts
+- Line 8 is an `audio` statement that creates an audio object. The name is `main_menu`, and the content of tts comes from the string object value above.
+- line 9 plays the above audio object.
+- line 11 is an `assignment statement`. The `url` string object is created through the `template` function.
+- line 12 is a `fetch statement`. Call the url pointed to by the string object created above.
+- lines 15-34 is an `if else` statement
+- Line 15-19 is the `if statement`. Check whether the `userid` object is true. If it is, execute the `statement block`. This `userid` object is created by the return value of the `fetch statement` above.
+The http return of `fetch` should be `userid=xxxx`. In this way, the value of the `userid` string object is an empty string. It means that the account already exists.
 
-- line 1, the first line must be a comment line with `version`, `timezone` and `default voice`. The timezone will be used to caculate the local time, the `voice` is used to the `text to speech`.
+- Line 17 is an `audio statement`, creating an `audio object`, and the content of tts is that the user has registered.
+- Line 18 is the `play_audio statement`, which plays the `audio` object above. 
+- Line 20-34 is the `else statement block`, which runs when `userid` is an empty string, which means that the user does not exist.
+- line 22 is an `assignment statement`. The url string object is created through the `template function`. This url is the backend url registered by the user
+- Line 23 is a `fetch statement`. Call the url pointed to by the string object created above. That is, create a new user. The return value of fetch will contain multiple lines, including `user ID, password, and username`. This will create multiple String objects.
+userid=xxxx
+password=xxxx
+username=xxxx
+- line 24 -27 is an `assignment statement`. The content is a `string object` of the `SMS template`.
+- line 28 is an `assignment statement`. The `string object` of the SMS content is created through the `template function`.
+- line 28 is an `sms statement`, send the content of the message to the caller
+- line 31 is an `audio object`, and the content is the registered tts
+- line 32 play the above `audio object`
+- Line 41-52 are `IVR` guide users to return to the main menu or `hang up` the phone
 
-- lines 3 - 6 are an `assignment statement` which creates a `string object` which value is used as the `tts` next.
-- line 8 is an `audio statement` which creates an `audio object` from a `tts` which can be played latter.
-- line 9 plays a message to ask the caller to wait
-- line 11 is an `assignment statement` which creates a `string` object which is a url pointing to `a background web program`
-- line 12 is a `fetch statement` which sends a http get request to the `background web program`
-- lines 15 - 34 are a `if statement` 
-- line 15 checks the `object userid` which is returned from the above `fetch statement`
-- lines 17 - 18 are executed when the `userid` object exists. This means the user exists already.
-- line 17 is an `audio statement` which creates an audio object from a `tts`
-- line 18 is a `play_audio statement` which plays the above `audio` object.
-- lines 22 - 32 are executed when the object `userid` does'nt exist.
-- line 22 is an `assignment statement` which is from the built-in `template function` to make a `string object` value is an url
-- line 23 is a `fetch statement` to send a http get request to the backend.
-- line 24 is an `assignment statement` creates a `string object` which is value of a `tts`.
-- line 28 is an `assignment statement` creates a `string object` from the built-in `template function`, the values of the `template function` are returned from the above `fetch statement`
-- line 29 is an `sms statement` which sends a sms message to the specifed number and the content from the above `string object`.
-- line 31 is an `audio statement` tts from an `string literal` of the congratulations message.
-- line 32 is an `play_audio statement` play the above `audio object`.
-- lines 36 - 38 are ivr to ask the caller to return the `main menu` or hang up. 
 
 ## change_password.bus
 ```bus

@@ -6,9 +6,8 @@
 
 > A Voice Game App Script for Twilio Voice Developer
 
-- Simple and Straight forward to build & control phone calls.
+- Simple and Straight forward to build & control phone calls and SMS.
 - First class Domain objects such as IVR, call recording, SMS, Text to speech, Speech Recognizing.
-- Numerous built-in objects to integrate with third parties such as Twilio, Google Drive, Google Speech, IBM speech, Salesforce, SendGrid(roadmap).
 
 [Quick Start](quickstart.md)
 
