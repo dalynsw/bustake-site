@@ -1,7 +1,13 @@
 # Pricing
 
-## Basic Plan - USD 0.00 
-100 hours / month / per Twilio Number
+## Basic Plan - Phone Call
+USD 0.00 / 50 hours / per month
 
-## Pro Plan
-USD 0.03 / per min / per Twilio Number
+## Basic Plan - SMS
+USD 0.00 / 500 SMS / per month
+
+## Pro Plan - Phone Call
+USD 0.02 / per min 
+
+## Pro Plan - SMS
+USD 0.01 / per SMS 
