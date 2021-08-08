@@ -4,7 +4,7 @@
 
 # Bustake Script <small>0.1.1 beta</small>
 
-> A Voice Game App Script for Twilio Voice Developer
+> A Voice App Script for Twilio Voice Developer
 
 - Simple and Straight forward to build & control phone calls and SMS.
 - First class Domain objects such as IVR, call recording, SMS, Text to speech, Speech Recognizing.
