@@ -13,3 +13,4 @@
     * examples
         * [Echo Counter](example-sms-echo.md)
 * [Debug](debug.md)
+* [Pricing](pricing.md)
