@@ -19,10 +19,10 @@ Press 2 for (changing password.)[emphasis level="strong"] [200ms]
 
 audio name='main_menu', tts=main_menu_tts;
 audio name='no_input', tts='[1s]no input detected.';
+audio name='no_match', tts='[1s]wrong option entered.';
 audio name='wrong_option', tts='[1s]wrong option entered, bye bye.';
-ivr name='main_menu', audioRef='main_menu', audioNoInputRef='no_input', numDigits='1';
-
-play_ivr ref='main_menu', maxLoop='2', timeout='10';
+ivr name='main_menu', audioRef='main_menu', audioNoInputRef='no_input', audioNoMatchRef='no_match',numDigits=1;
+play_ivr ref='main_menu', noInputCount=2, noMatchCount=2, timeout='10';
 
 switch GATHER_DIGITS {
     case '1' {
@@ -52,9 +52,10 @@ switch GATHER_DIGITS {
  - line 9 changing password in emphasis
  - Line 12, is an `audio` statement, which creates an audio object. The name is `main_menu`, and the content of tts comes from the string object value above.
  - Line 13, is an `audio` statement, which creates an audio object. The name is `no_input`, and the content of tts is a string object value.
- - Line 14, is an `audio` statement, which creates an audio object. The name is wrong_option, and the content of tts is a string object value.
- - Line 15, is an `ivr` statement, which creates an `ivr` object with the name `main_menu`.
- - line 17, is a `play_ivr` statement that plays the `ivr` object whose name is `main_menu`. The `audio` object specified by the `audioRef` of the `ivr` will be played first. If the user has no input, the `no_input` audio will be played, expecting the user to enter a number from the keyboard. `ivr` is played twice at most. Wait up to 10 seconds for each input
+ - Line 14, is an `audio` statement, which creates an audio object. The name is `no_match`, and the content of tts is a string object value.
+ - Line 15, is an `audio` statement, which creates an audio object. The name is `wrong_option`, and the content of tts is a string object value.
+ - Line 16, is an `ivr` statement, which creates an `ivr` object with the name `main_menu`. The `audioRef` of the `ivr` will be played first. The `audioNoInputRef` of the `ivr` will be played when no inputs. The `audioNoMatchRef` of the `ivr` will be played when inputs not matching.  The`numDigits` is the number of `dtmf` entered expecting.
+ - line 17, is a `play_ivr` statement that plays the `ivr` object whose name is `main_menu`.  The `noInputCount` is the number of loop of the `ivr` when no inputs occurs. The `noMatchCount` is the number of loop of the `ivr` when no matching occurs. The `timeout` is the Waitting time which is 10 seconds for waiting the inputs.
  - line 19-34 is a `switch case` statement
  - The line 19 `switch statement` will detect the value of a built-in string object `GATHER_DIGITS`, which comes from the result of the above `play_ivr` statement.
  - Line 20-22, check whether the value of `GATHER DIGITS` is equal to the string `'1'`, if so, run this `case` statement. Line 21 is `redirect` to the `regsiter.bus` script
@@ -109,7 +110,7 @@ Press 1 to return to the main menu [200ms] or just hang up.
 audio name='return_main_menu', tts=return_main_menu;
 audio name='no_input', tts='[1s]no input detected.';
 ivr name='return_main_menu', audioRef='return_main_menu', audioNoInputRef='no_input', numDigits='1';
-play_ivr ref='return_main_menu', maxLoop=2, timeout='10';                                   
+play_ivr ref='return_main_menu', noInputCount=2, timeout='10';                                   
 
 if GATHER_DIGITS == '1' {
     redirect path='portal.bus';
@@ -191,7 +192,7 @@ Press 1 to return to the main menu [200ms] or just hang up.
 
 audio name='return_main_menu', tts=return_main_menu;
 ivr name='return_main_menu', audioRef='return_main_menu', audioNoInputRef='no_input', numDigits='1';
-play_ivr ref='return_main_menu', maxLoop=2, timeout='10';
+play_ivr ref='return_main_menu', noInputCount=2, timeout='10';
 
 if GATHER_DIGITS == '1' {
     redirect path='portal.bus';

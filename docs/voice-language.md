@@ -30,11 +30,13 @@ audio name='ivr_department_menu', tts='press 1 for sales department, press 2 for
     - name: string value. Used to refer to the created `ivr object`.
     - audioRef: string value. The name of the `audio object`. This audio object will automatically play
     - audioNoInputRef: string value.   The name of the `audio object`. This audio object is played when no input is detected
+    - audioNoMatchRef: string value.   The name of the `audio object`. This audio object is played when the inputs no matching is detected
     - numDigits: number value. Expected number of digits entered by the caller.
+    - values: string array. Optional. This is the string values of the `dtmf` expecting or the `string values` of the transcribed result of your caller's speech expecting.
 
 ```ivr
 
-ivr name='department', audioRef='ivr_department_menu', numDigits=1;
+ivr name='department', audioRef='ivr_department_menu', audioNoInputRef='no_match',  audioNoMatchRef='no_match', numDigits=1;
 
 ```
 
@@ -44,7 +46,7 @@ The `play_audio statement` is used to play `audio objects`.  `;` is the end char
 - Attributes:
     - ref: string value. Points to the name of the `audio object`
     - voice: string value. optinal. voice name.
-    - loop: number bvalue. Play cycles.
+    - loop: number value. Play cycles.
 
 
 ```play_audio
@@ -56,10 +58,12 @@ play_audio ref='recording_alert', loop=2, voice='alice';
 The `play_ivr statement` is used to play ivr and collect keyboard inputs or speech recognition result.
 
 - Attributes:
-     - ref: string value. Point to the name of the `ivr object`
+     - ref: string value. Point to the name of the `ivr object`.
+     - noInputCount: number value.  Thi is the loop times of the `ivr` When no input occurs.
+     - noMatchCount: number value.  Thi is the loop times of the `ivr` When the input is not matching the options. 
 
 ```play_ivr
-play_ivr ref='department';
+play_ivr ref='department', noInputCount=2, noMatchCount=2;
 ```
 
 ### dial
@@ -101,13 +105,6 @@ hang_up;
     - to:  optinal. string value. the receiver's phone number. if not specified, it is the caller's phone number.
 
 
-### email
-`email` sends the text content to the specified email address
-
-- Attributes:
-    - subject: string value. subject
-    - text:  string value. content
-    - to: string value. receiver email address
 
 ## Voice extension built-in objects
 

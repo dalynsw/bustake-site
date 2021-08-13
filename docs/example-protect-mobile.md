@@ -30,10 +30,10 @@ Press 2 [200ms] if you are looking for building a (voice App)[emphasis level="st
 
 audio name='main_menu', tts=main_menu_tts;
 audio name='no_input', tts='[1s]no input detected.';
+audio name='no_match', tts='[1s]wrong option entered.';
 audio name='wrong_option', tts='[1s]wrong option entered, bye bye.';
-ivr name='main_menu', audioRef='main_menu', audioNoInputRef='no_input', numDigits='1';
-
-play_ivr ref='main_menu', maxLoop='2', timeout='10';
+ivr name='main_menu', audioRef='main_menu', audioNoInputRef='no_input', audioNoMatchRef='no_match', numDigits=1;
+play_ivr ref='main_menu', noInputCount=2, noMatchCount=2, timeout='10';
 
 audio name='calling_wait', tts='[500ms] please wait, connecting Jay.';
 
