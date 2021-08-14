@@ -2,7 +2,7 @@
 
 * [Quick Start](/quickstart.md)
 * [Language Reference](language.md)
-* Voice
+* [Voice](voice.md)
     * [Voice Language Reference](voice-language.md)
     * [Text to Speech](text-to-speech.md)
     * examples
