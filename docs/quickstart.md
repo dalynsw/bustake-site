@@ -69,7 +69,7 @@ dial value=numberTo;
 
 ## New User Registration
 
-We provide a free local landline phone number for new user registration. You only need to dial this number `+1720-709-2385`, and follow the prompts to complete the registration automatically. After that, you will receive a text message that contains the username and password of your account. Then you can use this account to create APPs. Hope you enjoy the fun of voice and SMS programming.
+New users can go to the console to create an account. After successful registration, a email is sent. The email content contains the username and password.
 
 ## Development console
 

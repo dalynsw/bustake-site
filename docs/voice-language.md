@@ -59,11 +59,12 @@ The `play_ivr statement` is used to play ivr and collect keyboard inputs or spee
 
 - Attributes:
      - ref: string value. Point to the name of the `ivr object`.
-     - noInputCount: number value.  Thi is the loop times of the `ivr` When no input occurs.
-     - noMatchCount: number value.  Thi is the loop times of the `ivr` When the input is not matching the options. 
+     - noInputCount: number value.  This the loop times of the `ivr` When no input occurs.
+     - noMatchCount: number value.  This the loop times of the `ivr` When the input is not matching the options. 
+     - timeout: string value. The number of seconds to wait the inputs
 
 ```play_ivr
-play_ivr ref='department', noInputCount=2, noMatchCount=2;
+play_ivr ref='department', noInputCount=2, noMatchCount=2, timeout='5';
 ```
 
 ### dial

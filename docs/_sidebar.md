@@ -1,6 +1,6 @@
 <!-- docs/_sidebar.md -->
 
-* [Quick Start](/quickstart.md)
+* [Quick Start](quickstart.md)
 * [Language Reference](language.md)
 * [Voice](voice.md)
     * [Voice Language Reference](voice-language.md)
