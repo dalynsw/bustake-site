@@ -22,7 +22,7 @@ An array is a container type that can hold other types of values. The values ​
 
 
 ## Object
-Objects are containers of various types of values. Objects can be used to hold string values, numeric values, boolean values, array values, and the values ​​of built-in objects. Once an object is created, it can be referenced anywhere in the script afterwards.
+Objects are containers of various types of values. You can call objects variables as well. Objects can be used to hold string values, numeric values, boolean values, array values, and the values ​​of built-in objects. Once an object is created, it can be referenced anywhere in the script afterwards.
 
 ```object
 a = 'hello world'; //`a` is a string object, the value is `hello world`
@@ -175,9 +175,19 @@ if a > 5 {
 }
 ```
 
+### loop
+The `loop` statement can loop to run a block of statments with an array objects. There are 2 hidden objects can be accessed. The first object name is with the captalized array object name with a suffix `_INDEX`.
+In the following example, when the array object name is `task`, the hidden object name is `TASK_INDEX`. This object is an number object, the value is the current array index position. The second object name in this case is `TASK_ITEM`. The value is the array item of the current index postion.
+
+```loop
+task = [1,2,3,4];
+loop task {
+    log message='this current item index:' + TASK_INDEX  + ',item:' + TASK_ITEM;
+}
+```
 
 ### fetch
-The `fetch statement` issues an http get request, this request returns multiple rows of keys and values. ​​which are used to create a series of `string objects`. `;` is the end character of the statement.
+The `fetch statement` issues an http get request, this request returns lines of `assign statements`. These objects  will be injected into  the current runtime environment. These objects can  be accessed afterwards.
 
 - Attributes
     - url: string type. http get url.
@@ -187,29 +197,15 @@ The `fetch statement` issues an http get request, this request returns multiple 
 fetch url='https://www.test.ccc/abc', timeout=2;
 ```
 
-The return must be multiple lines, each line contains a `key=value` as follows:
+The return scripts codes will be injected into runtime env:
 
 ```fetch result
-key1=value1
-key2=value2
-key3=value3
+name='Tom';
+age=10;
+gender='male';
 ```
+these objects can be accessed afterwards.
 
-- line 1 will create an string object `key1` with value `value1`
-- line 2 will create an string object `key2` with value `value2`
-- line 3 will create an string object `key3` with value `value3`
-
-### email
-The `email statement` is used to send email to the specified address, and `;` is the end character of the statement.
-
-- Attributes
-    - to: string type. Email receiver address.
-    - subject: string type. Email subject
-    - text: string type. Email text content
-
-```email
-email to='abc@abc.com', subject='abc', content='cddd';
-```
 
 
 ### log
@@ -269,11 +265,12 @@ The result of judging whether the `TO` string object ends with the `abc suffix`.
     - String object
 
 - Attributes:
-    - format: Formated template string
-    - values: The parameter array in the template.
+    - text: the template text with the object names. these names can be referenced `{name}`
 
 ```template
-email_content = template format="I love %s, I am %s",  values=['Twilio', 'Ben'];
+lover='Twilio';
+name='Ben';
+email_content = template text="I love {lover}, I am {name}";
 ```
 
 The `email_content` string object is created by the string value of `I love Twilio, I am Ben`
@@ -417,7 +414,45 @@ Generate static file url
     tellingURL = static_url_encode path='abc/cde/telling.xml';
 ```
 
+### format_date
+Convert timestamp number object to  a string object of date.
+- Return Value:
+    - date string object.
 
+- Attributes:
+    - format: String, the date format of the string object.
+    - value: Number, the timestamp in milliseconds.
+
+```format_date
+    tellingURL = format_date format='YYYYMMDD', value=1631860714123;
+```
+
+### validate_date_format
+check the string object value  valids in the specified format.
+- Return Value:
+    - boolean object.
+
+- Attributes:
+    - format: String, the specified date format of the string object.
+    - value: String, the checked string object.
+
+```validate_date_format
+    tellingURL = validate_date_format format='YYYYMMDD', value='20200202';
+```
+
+
+
+### array_length
+return length of array
+- Return Value:
+    - number object, length of the array.
+
+- Attributes:
+    - value: array object.
+
+```array_length
+    n = array_length value=[1,2,3];
+```
 
 ## Built-in objects
 

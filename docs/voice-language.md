@@ -34,6 +34,7 @@ audio name='ivr_department_menu', tts='press 1 for sales department, press 2 for
     - numDigits: number value. Expected number of digits entered by the caller.
     - values: string array. Optional. This is the string values of the `dtmf` expecting or the `string values` of the transcribed result of your caller's speech expecting.
 
+
 ```ivr
 
 ivr name='department', audioRef='ivr_department_menu', audioNoInputRef='no_match',  audioNoMatchRef='no_match', numDigits=1;
@@ -61,6 +62,7 @@ The `play_ivr statement` is used to play ivr and collect keyboard inputs or spee
      - ref: string value. Point to the name of the `ivr object`.
      - noInputCount: number value.  This the loop times of the `ivr` When no input occurs.
      - noMatchCount: number value.  This the loop times of the `ivr` When the input is not matching the options. 
+     - finishOnKey: The dtmf key to terminate the inputs. The popular dtmf key is `#`
      - timeout: string value. The number of seconds to wait the inputs
 
 ```play_ivr
@@ -96,14 +98,6 @@ redirect path='register.bus'
 ```hang_up
 hang_up;
 ```
-
-
-### sms
-`sms` send text messages to the specified phone number
-
-- Attributes:
-    - text: string value. sms content
-    - to:  optinal. string value. the receiver's phone number. if not specified, it is the caller's phone number.
 
 
 
@@ -235,6 +229,3 @@ Type: string
 
 ### RECORDING_DURATION
 - Type: string
-
-## _callend.bus
-If there is a script named  `_callend.bus` at the root of the `scripts folder`, this script will be executed after the call is over. You can put the email or fetch statements into this script passing data to the third-party APIs.

@@ -9,12 +9,12 @@ Paragraph. A `tts` can contain multiple paragraphs. There are more than two blan
 
 ```paragraphs
 main_menu_tts =`
-[1s]
+(1s)
 Welcome to bus take.
 Please listen carefully the following menu.
 
-Press 1 for (registration.)[emphasis level="strong"] [200ms]
-Press 2 for (changing password.)[emphasis level="strong"] [200ms]
+Press 1 for [registration](emphasis level="strong") (200ms)
+Press 2 for [changing password](emphasis level="strong") (200ms)
 `;
 ```
 
@@ -26,22 +26,22 @@ Sentences. A paragraph can contain multiple sentences. Sentences end with a peri
 `Text` is ordinary text.
 
 
-## break
-`break` is a period of silence. It can be expressed in seconds and milliseconds.
+## slience
+`slience` is a period of silence. It can be expressed in seconds and milliseconds.
 
 The break can be in `seconds` or `milli seconds`.
-`[2s]`   `[200ms]`
+`(2s)`   `(200ms)`
 
 ## Modifiers
 Modifiers are used to modify the text and polish the pronunciation
-The text modifier format is as follows: `(words words words)[modifer key1="value1", key2="value2", key3="value3"]`
+The text modifier format is as follows: `[words words words](modifer key1="value1", key2="value2", key3="value3")`
 
 
 ### say-as
 [amazon doc - say-as](https://docs.aws.amazon.com/polly/latest/dg/supportedtags.html#say-as-tag)
 ```say-as
-Your phone number (+10500)[say-as interpret-as='telephone']
-Your current balance is (1000)[say-as interpret-as='cardinal'] dolar
+Your phone number [+10500](say-as interpret-as='telephone')
+Your current balance is [1000](say-as interpret-as='cardinal') dolar
 ```
 
 ### emphasis
@@ -53,8 +53,7 @@ level attribute values:
  - strong: Increases the volume and slows the speaking rate so that the speech is louder and slower.
  - moderate: Increases the volume and slows the speaking rate, but less than strong. Moderate is the default.
  - reduced: Decreases the volume and speeds up the speaking rate. Speech is softer and faster.
-
-(changing password.)[emphasis level="strong"]
+[changing password](emphasis level="strong")
 
 ### prosody
 

@@ -69,9 +69,9 @@ dial value=numberTo;
 
 ## New User Registration
 
-New users can go to the console to create an account. After successful registration, a email is sent. The email content contains the username and password.
+New users can go to the console website to create an account. After successful registration, a email is sent. The email contains the username and password.
 
-## Development console
+## Developer console
 
 Console login [link](https://console.bustake.com)
 
@@ -100,10 +100,6 @@ App
 ![app folder](https://raw.githubusercontent.com/jaynsw/bustake-site/main/docs/images/app-folder.png)
 
 ![scripts folder](https://raw.githubusercontent.com/jaynsw/bustake-site/main/docs/images/scripts-folder.png)
-
-![script](https://raw.githubusercontent.com/jaynsw/bustake-site/main/docs/images/script.png)
-
-![twilio.json](https://raw.githubusercontent.com/jaynsw/bustake-site/main/docs/images/twilio-json.png)
 
 
 

@@ -8,6 +8,7 @@
     * examples
         * [Protect Mobile Number](example-protect-mobile.md)
         * [Account managment](example-account.md)
+* [PlugIn](plugin.md)
 * SMS
     * [SMS Language Reference](sms-language.md)
     * examples
