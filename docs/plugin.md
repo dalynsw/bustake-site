@@ -138,4 +138,4 @@ cancel caller's existing booking.
  plugin name='booking', command='cancel';
 ```
 
-The project `tele_vaccine` is a good example to show the plugins. The github [link](https://github.com/Benbus/tele_vaccine)
+# The project `tele_vaccine` is a good example to show the plugins. The github [link](https://github.com/Benbus/tele_vaccine)
