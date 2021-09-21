@@ -75,6 +75,13 @@ You received a call from {FROM}.  The status of call is {CALL_STATUS}. The durat
 plugin name='sms', command='send', text=sms_template, to='12333444';
 ```
 
+## contact plugin
+contact plugin is executed by the system and it will inject the `CONTACT` array object from system `contact list` by the caller's number.
+The `system contact list` is lines of contacts like a csv format.
+Each line is a contact. These item will be split by the `,` . 
+The system will match the caller's numbe with the items, if matched, the array object will be injected.
+
+
 
 ## booking plugin
 booking plugin connects your voice app with Google Calendar. There are several commands availabe.

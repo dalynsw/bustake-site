@@ -2,7 +2,7 @@
 
 ![logo](_media/logo.jpg)
 
-# Bustake Script <small>0.1.2 beta</small>
+# Bus Script <small>0.1.2 beta</small>
 
 > A Voice App Script for Twilio Voice Developer
 
