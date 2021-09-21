@@ -1,5 +1,5 @@
 # User Data
-User data we defined here is the data that belongs to the user and can be used to identify the user.
+User data we defined here is the data that is from the user and can be used to identify the user.
 
 # What User Data we access
 The users data we collect include the following:
