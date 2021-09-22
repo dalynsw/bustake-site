@@ -16,4 +16,5 @@
 * [Debug](debug.md)
 * [Pricing](pricing.md)
 * [Privacy Policy](privacy.md)
+* [Terms & Conditions](terms.md)
 * [User Data Policy](user_data.md)
