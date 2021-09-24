@@ -1,5 +1,6 @@
 <!-- _navbar.md -->
 
+* [Privacy Policy](privacy.md)
 
 * [Pricing](pricing.md)
 
